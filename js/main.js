@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initProjectModals();
   initCertificateModals();
-  initSecurityTerminal();
   initContactForm();
   initHeroActions();
 });
@@ -720,62 +719,7 @@ function initCertificateModals() {
   });
 }
 
-/* ==========================================================================
-   9. SECURITY LAB INTERACTIVE TERMINAL
-   ========================================================================== */
-function initSecurityTerminal() {
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalBody = document.getElementById('terminal-body');
 
-  if (!terminalInput || !terminalBody) return;
-
-  const commands = {
-    help: "Available commands:\n  • status   - View current security audit status\n  • rbac     - Inspect Role-Based Access Control logic\n  • sqli     - Demo parameterized query defense\n  • hash     - Demonstrate secure password hashing simulation\n  • audit    - List student security lab activity logs\n  • clear    - Clear terminal screen",
-    status: "[INFO] System Integrity: NORMAL (100%)\n[INFO] SSL/TLS: Simulated Enforced\n[INFO] Access Control: Role-Based (Admin, Coordinator, Officer, Guest)\n[INFO] Database Engine: MySQL / Prepared Statements",
-    rbac: "[RBAC DEMO]\n- Role: 'Admin'       => Full CRUD + Audit Trail View\n- Role: 'Coordinator' => Roster Dispatch + Guard Monitoring\n- Role: 'Guard'       => Checkpoint Check-in + Incident File\n- Role: 'Guest'       => Read-Only Profile\n[STATUS] Unauthorized role escalation prevented by session token checks.",
-    sqli: "[SQL INJECTION DEFENSE]\nVulnerable Query: SELECT * FROM users WHERE user = '$input'\nSecure Prepared:  $stmt = $pdo->prepare('SELECT * FROM users WHERE user = ?');\n                  $stmt->execute([$input]);\nResult: User input safely bound as data literal. Injection vectors neutralized.",
-    hash: "[HASHING SIMULATION]\nInput: 'StudentSecurePass2026!'\nAlgorithm: bcrypt (cost factor 12)\nOutput: $2y$12$e8wE0.qJ3K1GfH.5Yf7NquX9s0pQ8rT2uVwXyZaBcDeFgHiJkLmNo\nSalt: Cryptographically randomized per password.",
-    audit: "[LAB LOGS]\n- Lab 1: Session Hijacking Prevention & Secure Cookie Flags (HttpOnly, SameSite)\n- Lab 2: Input Sanitization on Web Reservation Form\n- Lab 3: Security Agency Mobile API Bearer Token Authentication",
-    clear: "CLEAR"
-  };
-
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const inputVal = terminalInput.value.trim().toLowerCase();
-      if (!inputVal) return;
-
-      // Create history entry
-      const cmdRow = document.createElement('div');
-      cmdRow.className = 'terminal-line';
-      cmdRow.innerHTML = `<span class="terminal-prompt">bea@security-lab:~$</span> <span>${escapeHtml(inputVal)}</span>`;
-      
-      if (inputVal === 'clear') {
-        terminalBody.querySelectorAll('.terminal-line, .terminal-output').forEach(el => el.remove());
-      } else {
-        terminalBody.insertBefore(cmdRow, terminalInput.parentElement);
-
-        const outRow = document.createElement('div');
-        outRow.className = 'terminal-output font-code';
-        if (commands[inputVal]) {
-          outRow.innerText = commands[inputVal];
-        } else {
-          outRow.innerText = `Command not found: '${inputVal}'. Type 'help' for available commands.`;
-        }
-        terminalBody.insertBefore(outRow, terminalInput.parentElement);
-      }
-
-      terminalInput.value = '';
-      terminalBody.scrollTop = terminalBody.scrollHeight;
-      if (isSoundEnabled) playSoftTick();
-    }
-  });
-
-  function escapeHtml(str) {
-    return str.replace(/[&<>"']/g, function(m) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
-    });
-  }
-}
 
 /* ==========================================================================
    10. CONTACT FORM CLIENT-SIDE HANDLER

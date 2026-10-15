@@ -4,6 +4,21 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:07] - Cisco & Coursera Verified Credentials Integration
+
+- **Scope & Objective**: Added 4 additional verified certificates from Cisco and Coursera to the expandable "View More" grid:
+  5. *Using Computer and Mobile Devices* (Cisco • Issued Nov 2025)
+  6. *Introduction to Cybersecurity* (Cisco • Issued Nov 2025)
+  7. *Introduction to Data Science* (Cisco • Issued Nov 2025)
+  8. *Certified Information Systems Auditor (CISA)* (Coursera • Issued Oct 2025)
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Added 4 new credential cards under `.cert-card-extra` with custom Cisco and Coursera badge icons, metadata, and "Show credential ↗" interactive links.
+- **Key Implementation Details**:
+  - Brings total certificates to 8 (top 3 visible, 5 revealed dynamically upon clicking "View More").
+  - Seamlessly animated with staggered fade-in slide transitions.
+
+---
+
 ### [2026-10-16 06:02] - Real Simplilearn Credentials Integration
 
 - **Scope & Objective**: Replaced placeholder certificate entries with Bea's actual Simplilearn verified credentials:

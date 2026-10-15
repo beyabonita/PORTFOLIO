@@ -1792,17 +1792,11 @@ a {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
-}
-
-.footer-code-icon {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--accent-pink);
 }
 
 /* --------------------------------------------------------------------------

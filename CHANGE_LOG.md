@@ -4,6 +4,17 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:14] - Cleaned Certificate Modal Display
+
+- **Scope & Objective**: Removed redundant description text ("Official Certificate of Completion (Code: 9443168)...") and the "Open High-Resolution Scan" button from the certificate modal as requested, so the modal focuses entirely and cleanly on the authentic certificate scan.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Removed `#modal-cert-desc` and `#modal-cert-download` from the modal body; removed `data-desc` attribute from Card 1.
+  - [`js/main.js`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/js/main.js): Cleaned `initCertificateModals()` to display the certificate image cleanly without extra text clutter.
+- **Verification & Testing**:
+  - Validated syntax and deployed directly to Vercel production.
+
+---
+
 ### [2026-10-16 06:11] - Official Certificate Scan Attached to Basics of Data Structures & Algorithms
 
 - **Scope & Objective**: Attached Bea M. Nicor's official Simplilearn certificate scan (Certificate Code: 9443168, dated 21st November 2025) to the "Basics of Data Structure and Algorithms" card and credential modal.

@@ -4,6 +4,14 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:20] - Aligned Mega Menu and Footer Links with Real Project (MCC Seafood Restaurant)
+
+- **Scope & Objective**: Corrected the Project 2 link in both the Header Explore Mega Menu and Footer navigation from placeholder "Student Organizations Portal" to Bea's authentic second capstone system: **MCC Seafood Restaurant** (*Online Reservation & Table Booking*).
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Updated mega menu link and footer link for `data-open-modal="project2"`.
+- **Verification & Testing**:
+  - Committed to GitHub and deployed directly to Vercel production.
+
 ### [2026-10-16 07:15] - Removed Redundant BSIS ( 2026 ) and CSS ( 2019 ) Badges from Education Section
 
 - **Scope & Objective**: Removed the redundant code font labels `BSIS ( 2026 )` and `CSS ( 2019 )` from the Education cards, keeping the clean year badge pills (`2026` and `2019`) and full degree titles for a cleaner, decluttered design.

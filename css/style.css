@@ -183,6 +183,10 @@ body.light-theme .modal-close-btn:hover { background: #fce7f3; color: #db2777; }
 body.light-theme .modal-section-title { color: #db2777; }
 body.light-theme .modal-section-desc { color: #374151; }
 body.light-theme .modal-body ul li { color: #374151; }
+body.light-theme .team-member-card { background: #fdf2f8; border-color: rgba(219, 39, 119, 0.25); box-shadow: 0 4px 12px rgba(219, 39, 119, 0.08); }
+body.light-theme .team-member-name { color: #111827; }
+body.light-theme .team-member-role { color: #db2777; font-weight: 600; }
+body.light-theme .modal-team-photo-wrap { background: #fdf2f8; border-color: rgba(219, 39, 119, 0.25); }
 body.light-theme .toast-msg { background: #ffffff; color: #111827; border-color: rgba(219, 39, 119, 0.35); box-shadow: 0 10px 25px rgba(219, 39, 119, 0.15); }
 
 /* Accent Flavor 2: Lavender Dream */

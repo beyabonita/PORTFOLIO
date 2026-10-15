@@ -410,11 +410,11 @@ const projectData = {
     ],
     role: "System Designer & Front-End Developer: Conducted user requirements elicitation with restaurant staff, developed normalized database schemas, and built the customer booking portal with responsive UI.",
     technologies: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "AJAX", "Responsive Design"],
-    teamImage: "IMAGES/team2.png",
+    teamImage: "IMAGES/WEB2.png",
     teamMembers: [
-      { name: "Bea Matias Nicor", role: "System Designer & Frontend" },
-      { name: "Team Member 2", role: "Backend Developer" },
-      { name: "Team Member 3", role: "Testing & QA Specialist" }
+      { name: "BEA NICOR", role: "PROJECT MANAGER" },
+      { name: "DIVINE GRACE VILLANUEVA", role: "SYSTEM ANALYST" },
+      { name: "JOBERT ORTIZ", role: "DEVELOPER" }
     ]
   },
   project3: {

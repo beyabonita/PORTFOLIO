@@ -4,6 +4,14 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:15] - Removed Redundant BSIS ( 2026 ) and CSS ( 2019 ) Badges from Education Section
+
+- **Scope & Objective**: Removed the redundant code font labels `BSIS ( 2026 )` and `CSS ( 2019 )` from the Education cards, keeping the clean year badge pills (`2026` and `2019`) and full degree titles for a cleaner, decluttered design.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Removed `<span class="font-code text-pink">BSIS ( 2026 )</span>` and `<span class="font-code text-pink">CSS ( 2019 )</span>`.
+- **Verification & Testing**:
+  - Committed to GitHub and deployed directly to Vercel production.
+
 ### [2026-10-16 07:10] - Retained Pure Cream Grid Background & Removed Corner Fabric Overlays
 
 - **Scope & Objective**: As requested, removed the red gingham corner fabric overlays, wavy ribbon strokes, and bow decorations from the background, retaining solely the warm cream graph paper grid for a clean, distraction-free aesthetic while preserving the warm stationery cards and cherry-red theme accents.

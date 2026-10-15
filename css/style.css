@@ -1867,6 +1867,24 @@ body.light-theme .mega-sub-link-highlight {
   flex-grow: 1;
 }
 
+.cert-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.35rem 0 0.5rem 0;
+}
+
+.cert-org {
+  color: var(--accent-pink);
+  font-weight: 600;
+}
+
+.cert-date {
+  color: var(--text-muted);
+}
+
 .cert-link,
 .btn-cert-preview {
   display: inline-flex;

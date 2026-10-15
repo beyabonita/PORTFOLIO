@@ -4,6 +4,22 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:02] - Real Simplilearn Credentials Integration
+
+- **Scope & Objective**: Replaced placeholder certificate entries with Bea's actual Simplilearn verified credentials:
+  1. *Basics of Data Structure and Algorithms* (Simplilearn • Issued Nov 2025)
+  2. *Introduction to Cloud Security* (Simplilearn • Issued Nov 2025)
+  3. *Introduction to Google Cloud* (Simplilearn • Issued Nov 2025)
+  4. *Innovating with Google AI* (Simplilearn • Issued Nov 2025, revealed under "View More")
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Added exact titles, Simplilearn badge marks, metadata rows (`.cert-meta`), and `Show credential ↗` buttons matching the user's reference image.
+  - [`css/style.css`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/css/style.css): Added `.cert-meta`, `.cert-org`, and `.cert-date` styling for light and dark modes.
+- **Key Implementation Details**:
+  - Maintained image-less layout with interactive "Show credential" links ready for image or URL attachments.
+  - Verified toggle animation and modal integration.
+
+---
+
 ### [2026-10-16 05:45] - Text-Based Certificate Cards & Expandable "View More" Toggle
 
 - **Scope & Objective**: Removed placeholder images from the Certificates & Training cards, streamlined each card to present the certificate name and direct link below it, and added an interactive "View More" button below the initial 3 cards to dynamically reveal additional certificates.

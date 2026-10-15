@@ -408,7 +408,7 @@ const projectData = {
   },
   project3: {
     title: "KARE: RESTAURANT RESERVATION AND ORDERING SYSTEM",
-    image: "assets/images/project3-placeholder.svg",
+    image: "IMAGES/PROJ3.png",
     overview: "A unified restaurant information system that bridges digital table bookings with contactless digital table ordering, kitchen order routing, and bill calculation.",
     problem: "Disconnect between prior table reservations and dining room order placement, resulting in long customer wait times and clerical errors in billing.",
     objectives: [

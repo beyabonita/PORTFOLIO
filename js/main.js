@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initHeroActions();
   initProgressBarAnimations();
+  initMegaMenu();
 });
 
 /* ==========================================================================
@@ -836,4 +837,164 @@ function initProgressBarAnimations() {
 
   cards.forEach(card => observer.observe(card));
 }
+
+/* ==========================================================================
+   13. MEGA MENU NAVIGATION CONTROLLER
+   ========================================================================== */
+function initMegaMenu() {
+  const megaItem = document.getElementById('nav-item-mega');
+  const megaTrigger = document.getElementById('mega-menu-trigger');
+  const megaPanel = document.getElementById('mega-menu-panel');
+  const accordionHeaders = document.querySelectorAll('.mega-accordion-header');
+  const subLinks = document.querySelectorAll('.mega-sub-link');
+  const resumeBtn = document.getElementById('mega-open-resume');
+  const headerNav = document.getElementById('header-nav');
+  const mobileToggle = document.getElementById('mobile-toggle');
+
+  if (!megaTrigger || !megaPanel) return;
+
+  let closeTimer = null;
+
+  function openDesktopMega() {
+    clearTimeout(closeTimer);
+    if (window.innerWidth > 860) {
+      megaPanel.classList.add('open');
+      if (megaItem) megaItem.classList.add('open');
+      megaTrigger.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function closeDesktopMega() {
+    if (window.innerWidth > 860) {
+      closeTimer = setTimeout(() => {
+        megaPanel.classList.remove('open');
+        if (megaItem) megaItem.classList.remove('open');
+        megaTrigger.setAttribute('aria-expanded', 'false');
+      }, 150);
+    }
+  }
+
+  // Desktop Hover opening
+  if (megaItem) {
+    megaItem.addEventListener('mouseenter', openDesktopMega);
+    megaItem.addEventListener('mouseleave', closeDesktopMega);
+  }
+
+  // Click Trigger (Works seamlessly on desktop & mobile)
+  megaTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (window.innerWidth <= 860) {
+      // Mobile accordion toggle
+      const isOpen = megaPanel.classList.toggle('open-mobile');
+      megaTrigger.setAttribute('aria-expanded', String(isOpen));
+
+      // Auto expand first category on first open if none active
+      const activeItem = megaPanel.querySelector('.mega-accordion-item.active');
+      if (isOpen && !activeItem) {
+        const firstItem = megaPanel.querySelector('.mega-accordion-item');
+        if (firstItem) {
+          firstItem.classList.add('active');
+          const firstHeader = firstItem.querySelector('.mega-accordion-header');
+          if (firstHeader) firstHeader.setAttribute('aria-expanded', 'true');
+        }
+      }
+    } else {
+      // Desktop click toggle
+      const isOpen = megaPanel.classList.toggle('open');
+      if (megaItem) megaItem.classList.toggle('open', isOpen);
+      megaTrigger.setAttribute('aria-expanded', String(isOpen));
+    }
+  });
+
+  // Mobile Accordion Categories
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', (e) => {
+      if (window.innerWidth <= 860) {
+        e.stopPropagation();
+        const item = header.closest('.mega-accordion-item');
+        if (!item) return;
+
+        const isAlreadyActive = item.classList.contains('active');
+
+        // Close other accordion categories for clean vertical accordion behavior
+        document.querySelectorAll('.mega-accordion-item').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('active');
+            const otherHeader = other.querySelector('.mega-accordion-header');
+            if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        item.classList.toggle('active', !isAlreadyActive);
+        header.setAttribute('aria-expanded', String(!isAlreadyActive));
+      }
+    });
+  });
+
+  // Subcategory link clicks
+  subLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const openModalProject = link.getAttribute('data-open-modal');
+
+      // Close Mega Menu
+      megaPanel.classList.remove('open', 'open-mobile');
+      if (megaItem) megaItem.classList.remove('open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+
+      // Close Mobile Nav drawer if open
+      if (headerNav && headerNav.classList.contains('open')) {
+        headerNav.classList.remove('open');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      // If linking directly to a specific project modal, launch it
+      if (openModalProject && typeof openProjectModal === 'function') {
+        setTimeout(() => {
+          openProjectModal(openModalProject);
+        }, 320);
+      }
+    });
+  });
+
+  // Interactive Resume Modal shortcut
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      megaPanel.classList.remove('open', 'open-mobile');
+      if (megaItem) megaItem.classList.remove('open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+
+      if (headerNav && headerNav.classList.contains('open')) {
+        headerNav.classList.remove('open');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (typeof openResumeModal === 'function') {
+        setTimeout(() => {
+          openResumeModal();
+        }, 150);
+      }
+    });
+  }
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (megaPanel.classList.contains('open') && !megaPanel.contains(e.target) && !megaTrigger.contains(e.target)) {
+      megaPanel.classList.remove('open');
+      if (megaItem) megaItem.classList.remove('open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && (megaPanel.classList.contains('open') || megaPanel.classList.contains('open-mobile'))) {
+      megaPanel.classList.remove('open', 'open-mobile');
+      if (megaItem) megaItem.classList.remove('open');
+      megaTrigger.setAttribute('aria-expanded', 'false');
+      megaTrigger.focus();
+    }
+  });
+}
+
 

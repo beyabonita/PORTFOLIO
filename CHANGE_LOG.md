@@ -4,6 +4,14 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:25] - Removed Explore Mega Menu Navigation Item
+
+- **Scope & Objective**: Removed the "Explore" dropdown mega menu item from the main header navigation bar, streamlining the navigation to directly display the primary sections (*About*, *Projects*, *Tools*, *Education*, *Certificates*, *Skills*, *Contact*).
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Removed `<li class="nav-item-mega" id="nav-item-mega">...</li>` block.
+- **Verification & Testing**:
+  - Verified syntax, committed to GitHub, and deployed directly to Vercel production.
+
 ### [2026-10-16 07:20] - Aligned Mega Menu and Footer Links with Real Project (MCC Seafood Restaurant)
 
 - **Scope & Objective**: Corrected the Project 2 link in both the Header Explore Mega Menu and Footer navigation from placeholder "Student Organizations Portal" to Bea's authentic second capstone system: **MCC Seafood Restaurant** (*Online Reservation & Table Booking*).

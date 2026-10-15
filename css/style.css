@@ -1861,6 +1861,92 @@ a {
   line-height: 1.7;
 }
 
+/* Project Team Modal Section */
+.modal-team-section {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.modal-team-photo-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: rgba(10, 13, 24, 0.6);
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.modal-team-photo-wrap:hover {
+  border-color: var(--accent-pink);
+}
+
+.modal-team-photo-wrap img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0;
+}
+
+.modal-team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .modal-team-members-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-member-card {
+  background: rgba(18, 24, 43, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-pink);
+  box-shadow: 0 4px 16px rgba(244, 114, 182, 0.2);
+}
+
+.team-member-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(244, 114, 182, 0.15);
+  border: 1px solid var(--accent-pink);
+  color: var(--accent-pink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-name {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.team-member-role {
+  color: var(--accent-pink);
+  font-size: 0.78rem;
+  font-family: var(--font-code);
+  display: block;
+}
+
 /* ==========================================================================
    RESUME DOCUMENT LAYOUT (PRECISE REPLICA OF BEA NICOR'S RESUME CARD)
    ========================================================================== */

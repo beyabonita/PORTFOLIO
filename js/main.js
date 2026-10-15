@@ -384,7 +384,13 @@ const projectData = {
       "Client portal for reviewing assigned personnel and daily security status."
     ],
     role: "Lead Systems Analyst & Full-Stack Developer: Responsible for database modeling (ERD), system architecture design, administrative dashboard implementation, and RESTful API endpoints for the mobile monitoring client.",
-    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap", "REST API", "Leaflet/GPS", "HTML5/CSS3"]
+    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap", "REST API", "Leaflet/GPS", "HTML5/CSS3"],
+    teamImage: "IMAGES/team1.png",
+    teamMembers: [
+      { name: "Bea Matias Nicor", role: "Lead Systems Analyst & Developer" },
+      { name: "Team Member 2", role: "Co-Developer" },
+      { name: "Team Member 3", role: "Database & Documentation" }
+    ]
   },
   project2: {
     title: "ONLINE RESERVATION MANAGEMENT SYSTEM FOR MCC SEAFOOD RESTAURANT",
@@ -404,7 +410,13 @@ const projectData = {
       "Kitchen and floor staff scheduling coordination dashboard."
     ],
     role: "System Designer & Front-End Developer: Conducted user requirements elicitation with restaurant staff, developed normalized database schemas, and built the customer booking portal with responsive UI.",
-    technologies: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "AJAX", "Responsive Design"]
+    technologies: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "AJAX", "Responsive Design"],
+    teamImage: "IMAGES/team2.png",
+    teamMembers: [
+      { name: "Bea Matias Nicor", role: "System Designer & Frontend" },
+      { name: "Team Member 2", role: "Backend Developer" },
+      { name: "Team Member 3", role: "Testing & QA Specialist" }
+    ]
   },
   project3: {
     title: "KARE: RESTAURANT RESERVATION AND ORDERING SYSTEM",
@@ -424,7 +436,13 @@ const projectData = {
       "Administrative audit logs and daily sales summary generation."
     ],
     role: "Co-Developer & Database Administrator: Structured relational database tables, implemented business logic constraints, and designed the interactive customer order interface.",
-    technologies: ["JavaScript (ES6+)", "PHP", "MySQL", "CSS Glassmorphism", "Bootstrap", "JSON API"]
+    technologies: ["JavaScript (ES6+)", "PHP", "MySQL", "CSS Glassmorphism", "Bootstrap", "JSON API"],
+    teamImage: "IMAGES/team3.png",
+    teamMembers: [
+      { name: "Bea Matias Nicor", role: "Co-Developer & Database Admin" },
+      { name: "Team Member 2", role: "Lead Full-Stack Developer" },
+      { name: "Team Member 3", role: "UI/UX & Documentation" }
+    ]
   }
 };
 
@@ -479,6 +497,42 @@ function initProjectModals() {
       tag.textContent = tech;
       techWrap.appendChild(tag);
     });
+
+    // Render Project Team Section (Photo + 3 Members)
+    const teamSection = document.getElementById('modal-project-team-section');
+    const teamImg = document.getElementById('modal-team-img');
+    const teamList = document.getElementById('modal-team-members-list');
+    if (teamSection && teamList) {
+      if (data.teamMembers && data.teamMembers.length > 0) {
+        teamSection.style.display = 'block';
+        if (teamImg) {
+          teamImg.src = data.teamImage || 'IMAGES/team.png';
+          teamImg.alt = `${data.title} Team Photo`;
+          teamImg.onerror = function() {
+            // Fallback placeholder if team image is not yet uploaded
+            this.src = 'assets/images/certificate-placeholder.svg';
+          };
+        }
+        teamList.innerHTML = '';
+        data.teamMembers.forEach(member => {
+          const card = document.createElement('div');
+          card.className = 'team-member-card';
+          card.innerHTML = `
+            <div class="team-member-avatar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <span class="team-member-name">${member.name}</span>
+            <span class="team-member-role">${member.role}</span>
+          `;
+          teamList.appendChild(card);
+        });
+      } else {
+        teamSection.style.display = 'none';
+      }
+    }
 
     // Setup the image replacer button
     const fileInput = document.getElementById('project-image-input');

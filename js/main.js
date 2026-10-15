@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCertificateModals();
   initContactForm();
   initHeroActions();
+  initProgressBarAnimations();
 });
 
 /* ==========================================================================
@@ -782,3 +783,57 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 300);
   }, 4000);
 }
+
+/* ==========================================================================
+   12. ANIMATED PROGRESS BARS (ON-SCREEN SCROLL OBSERVER)
+   ========================================================================== */
+function initProgressBarAnimations() {
+  const cards = document.querySelectorAll('.skill-category-card');
+  if (!cards.length) return;
+
+  // Cache original target widths from style attribute and initialize width to 0%
+  cards.forEach(card => {
+    const fills = card.querySelectorAll('.skill-progress-fill');
+    fills.forEach(fill => {
+      if (!fill.dataset.targetWidth) {
+        const target = fill.style.width || fill.getAttribute('data-width') || '85%';
+        fill.dataset.targetWidth = target;
+        fill.style.width = '0%';
+      }
+    });
+  });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Trigger animations whenever cards scroll into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const fills = entry.target.querySelectorAll('.skill-progress-fill');
+      if (entry.isIntersecting) {
+        fills.forEach((fill, idx) => {
+          if (prefersReducedMotion) {
+            fill.style.width = fill.dataset.targetWidth;
+          } else {
+            // Staggered cascade animation
+            setTimeout(() => {
+              fill.style.width = fill.dataset.targetWidth;
+            }, idx * 100);
+          }
+        });
+      } else {
+        // Reset to 0% when scrolled off screen, so it animates again whenever shown!
+        if (!prefersReducedMotion) {
+          fills.forEach(fill => {
+            fill.style.width = '0%';
+          });
+        }
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  cards.forEach(card => observer.observe(card));
+}
+

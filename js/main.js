@@ -368,7 +368,7 @@ function initHeroActions() {
 const projectData = {
   project1: {
     title: "WEB BASED SECURITY AGENCY MANAGEMENT SYSTEM WITH MOBILE APPLICATION FOR REALTIME MONITORING",
-    image: "assets/images/project1-placeholder.svg",
+    image: "IMAGES/PROJ1.png",
     overview: "A comprehensive enterprise information system designed to automate security guard deployments, schedule dispatching, incident reporting, and real-time mobile checkpoint verification for security agency operations.",
     problem: "Manual attendance tracking, delayed incident escalation, paper-based guard scheduling, and lack of live verification during patrol rounds in distributed client sites.",
     objectives: [

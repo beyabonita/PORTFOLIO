@@ -2385,59 +2385,28 @@ body.light-theme .mega-sub-link-highlight {
   align-items: center;
 }
 
-.resume-card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.resume-image-card {
-  max-width: 480px;
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), 0 0 30px rgba(68, 107, 242, 0.25);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  display: block;
-  margin: 0 auto;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.resume-image-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(68, 107, 242, 0.35);
-}
-
-body.light-theme .resume-image-card {
-  border-color: rgba(219, 39, 119, 0.25);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 0 25px rgba(219, 39, 119, 0.15);
-}
-
-.modal-resume-body img {
-  border: none;
-  margin-bottom: 0;
-}
-
-/* Resume Sheet Container */
-.resume-doc {
+.pretty-resume-card {
   background: #b8c6f2;
-  border-radius: 20px;
+  border-radius: 22px;
   max-width: 580px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 35px rgba(68, 107, 242, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 35px rgba(68, 107, 242, 0.25);
   border: 1.5px solid rgba(255, 255, 255, 0.5);
   color: #111a48;
   font-family: var(--font-body);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* 1. Top Decorative Checkerboard Band */
-.resume-checkerboard-band {
-  height: 60px;
+.pretty-resume-card:hover {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 45px rgba(68, 107, 242, 0.35);
+}
+
+/* 1. Top Decorative Blue & White Checkerboard Band */
+.resume-checkers {
+  height: 52px;
   width: 100%;
   background-color: #ffffff;
   background-image: 
@@ -2445,52 +2414,48 @@ body.light-theme .resume-image-card {
     linear-gradient(-45deg, #446bf2 25%, transparent 25%), 
     linear-gradient(45deg, transparent 75%, #446bf2 75%), 
     linear-gradient(-45deg, transparent 75%, #446bf2 75%);
-  background-size: 24px 24px;
-  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  background-size: 22px 22px;
+  background-position: 0 0, 0 11px, 11px -11px, -11px 0px;
 }
 
-/* 2. Header Area */
-.resume-doc-header {
+/* 2. Header Area: Name Ribbon Badge & Portrait */
+.resume-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 1.5rem 0.5rem 1.25rem;
+  padding: 0 1.6rem 0.5rem 1.4rem;
   position: relative;
   z-index: 3;
-  margin-top: -12px;
+  margin-top: -10px;
 }
 
-.resume-header-left {
-  padding-left: 0.5rem;
+.resume-header-info {
+  padding-left: 0.25rem;
   padding-top: 0.25rem;
 }
 
-.resume-name-badge-wrap {
+.resume-name-ribbon {
+  background: #111a48;
+  padding: 0.55rem 2.4rem 0.55rem 1.4rem;
   position: relative;
   display: inline-block;
-}
-
-.resume-name-badge {
-  background: #111a48;
-  padding: 0.55rem 2.2rem 0.55rem 1.4rem;
-  position: relative;
   clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 100%, 0 100%);
-  box-shadow: 0 4px 10px rgba(17, 26, 72, 0.25);
+  box-shadow: 0 4px 12px rgba(17, 26, 72, 0.25);
 }
 
-.resume-name-badge::after {
+.resume-name-ribbon::after {
   content: '';
   position: absolute;
   top: 0;
-  right: -14px;
-  width: 28px;
+  right: -15px;
+  width: 30px;
   height: 100%;
   background: #2563eb;
   z-index: -1;
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
 }
 
-.resume-name-title {
+.resume-name-text {
   color: #c5d4fc;
   font-family: var(--font-heading, 'Outfit', sans-serif);
   font-size: 1.65rem;
@@ -2500,7 +2465,7 @@ body.light-theme .resume-image-card {
   line-height: 1.1;
 }
 
-.resume-job-title {
+.resume-role-text {
   color: #111a48;
   font-family: var(--font-heading, 'Outfit', sans-serif);
   font-size: 0.95rem;
@@ -2509,19 +2474,19 @@ body.light-theme .resume-image-card {
   margin: 0.45rem 0 0 1.4rem;
 }
 
-.resume-photo-frame {
-  width: 155px;
-  height: 155px;
+.resume-portrait-frame {
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   border: 3.5px solid #a84738;
   background: #ffffff;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(17, 26, 72, 0.25);
-  margin-top: -38px;
+  margin-top: -34px;
   flex-shrink: 0;
 }
 
-.resume-profile-photo {
+.resume-portrait-img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -2532,12 +2497,12 @@ body.light-theme .resume-image-card {
   display: block !important;
 }
 
-/* 3. Two-Column Grid */
-.resume-doc-grid {
+/* 3. Middle 2-Column Grid */
+.resume-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 1.25rem;
-  padding: 1.25rem 1.75rem 0.5rem 1.75rem;
+  padding: 1rem 1.75rem 0.5rem 1.75rem;
   position: relative;
   z-index: 2;
 }
@@ -2550,7 +2515,7 @@ body.light-theme .resume-image-card {
   box-shadow: 0 4px 12px rgba(17, 26, 72, 0.06);
 }
 
-.resume-pill-title {
+.resume-pill-heading {
   font-size: 1.15rem;
   font-weight: 800;
   color: #111a48;
@@ -2559,8 +2524,8 @@ body.light-theme .resume-image-card {
   font-family: var(--font-heading, 'Outfit', sans-serif);
 }
 
-.resume-about-desc {
-  font-size: 0.82rem;
+.resume-about-paragraph {
+  font-size: 0.8rem;
   line-height: 1.45;
   color: #111a48;
   text-align: justify;
@@ -2568,7 +2533,7 @@ body.light-theme .resume-image-card {
   font-weight: 500;
 }
 
-.resume-contact-list {
+.resume-contact-items {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -2577,17 +2542,17 @@ body.light-theme .resume-image-card {
   gap: 0.65rem;
 }
 
-.resume-contact-item {
+.resume-contact-row {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: #111a48;
   font-weight: 500;
   line-height: 1.35;
 }
 
-.resume-contact-icon {
+.resume-icon-wrap {
   color: #9f4335;
   display: flex;
   align-items: center;
@@ -2595,19 +2560,19 @@ body.light-theme .resume-image-card {
   flex-shrink: 0;
 }
 
-.resume-contact-link {
+.resume-contact-val {
   color: #111a48;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  word-break: break-word;
 }
 
-.resume-contact-link:hover {
+a.resume-contact-val:hover {
   color: #153896;
   text-decoration: underline;
 }
 
 /* Right Column: Education Timeline */
-.resume-edu-heading {
+.resume-edu-header {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -2615,7 +2580,7 @@ body.light-theme .resume-image-card {
   padding-left: 0.25rem;
 }
 
-.resume-edu-cap-icon {
+.resume-cap-icon {
   color: #111a48;
   display: flex;
   align-items: center;
@@ -2629,12 +2594,12 @@ body.light-theme .resume-image-card {
   font-family: var(--font-heading, 'Outfit', sans-serif);
 }
 
-.resume-edu-timeline {
+.resume-timeline-track {
   position: relative;
   padding-left: 1.6rem;
 }
 
-.resume-edu-timeline::before {
+.resume-timeline-track::before {
   content: '';
   position: absolute;
   left: 6.5px;
@@ -2644,12 +2609,12 @@ body.light-theme .resume-image-card {
   background: #9f4335;
 }
 
-.resume-edu-item {
+.resume-timeline-item {
   position: relative;
   margin-bottom: 1.5rem;
 }
 
-.resume-timeline-dot {
+.resume-track-dot {
   position: absolute;
   left: -1.6rem;
   top: 4px;
@@ -2661,7 +2626,7 @@ body.light-theme .resume-image-card {
   box-shadow: 0 0 0 2px #b7c7f3;
 }
 
-.resume-school-name {
+.resume-school-title {
   color: #13399b;
   font-size: 0.94rem;
   font-weight: 800;
@@ -2670,7 +2635,7 @@ body.light-theme .resume-image-card {
   font-family: var(--font-heading, 'Outfit', sans-serif);
 }
 
-.resume-school-program {
+.resume-school-course {
   color: #111a48;
   font-size: 0.85rem;
   margin: 0 0 0.15rem 0;
@@ -2678,7 +2643,7 @@ body.light-theme .resume-image-card {
   font-weight: 500;
 }
 
-.resume-school-year {
+.resume-school-date {
   color: #111a48;
   font-size: 0.85rem;
   margin: 0;
@@ -2686,47 +2651,45 @@ body.light-theme .resume-image-card {
 }
 
 /* 4 & 5. Bottom Sections: SKILLS & INTERESTS */
-.resume-bottom-section {
-  padding: 0.4rem 1.75rem 0.8rem 1.75rem;
+.resume-badge-divider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.2rem 1.75rem;
   position: relative;
   z-index: 2;
 }
 
-.resume-section-divider-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.resume-divider-line {
+.resume-bar-line {
   flex: 1;
   height: 1.5px;
   background: #234c90;
 }
 
-.resume-badge-header {
+.resume-center-badge {
   background: #0b3780;
   color: #ffffff;
   font-family: var(--font-heading, 'Outfit', sans-serif);
   font-weight: 800;
   font-size: 0.86rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   padding: 0.22rem 2.2rem;
   border-radius: 2px;
   text-transform: uppercase;
   box-shadow: 0 2px 6px rgba(11, 55, 128, 0.2);
 }
 
-.resume-skills-strip {
+.resume-skills-row {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.6rem;
-  padding: 0.35rem 0 0.5rem 0;
+  padding: 0.35rem 1.75rem 0.65rem 1.75rem;
+  position: relative;
+  z-index: 2;
 }
 
-.resume-skill-item {
+.resume-skill-box {
   width: 44px;
   height: 44px;
   display: flex;
@@ -2736,11 +2699,11 @@ body.light-theme .resume-image-card {
   transition: transform var(--transition-fast);
 }
 
-.resume-skill-item:hover {
+.resume-skill-box:hover {
   transform: translateY(-3px) scale(1.08);
 }
 
-.icon-ps-box {
+.ps-logo-box {
   width: 38px;
   height: 38px;
   background: #001e36;
@@ -2757,7 +2720,7 @@ body.light-theme .resume-image-card {
   box-shadow: 0 2px 8px rgba(0, 30, 54, 0.3);
 }
 
-.icon-canva-box {
+.canva-logo-box {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -2772,35 +2735,30 @@ body.light-theme .resume-image-card {
   box-shadow: 0 2px 8px rgba(125, 42, 232, 0.3);
 }
 
-.resume-interests-strip {
+.resume-interests-row {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0.4rem 0.5rem 0.9rem 0.5rem;
+  padding: 0.4rem 2rem 1rem 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-.resume-interest-item {
+.resume-interest-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
 }
 
-.resume-interest-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-}
-
-.resume-interest-label {
+.resume-interest-text {
   font-size: 0.78rem;
   color: #111a48;
   font-weight: 700;
   text-transform: lowercase;
 }
 
-.resume-corner-wave {
+.resume-fluid-wave {
   position: absolute;
   bottom: 0;
   width: 90px;
@@ -2809,11 +2767,11 @@ body.light-theme .resume-image-card {
   z-index: 1;
 }
 
-.resume-wave-left {
+.wave-left {
   left: 0;
 }
 
-.resume-wave-right {
+.wave-right {
   right: 0;
 }
 
@@ -2827,32 +2785,32 @@ body.light-theme .resume-image-card {
 }
 
 @media (max-width: 600px) {
-  .resume-doc-grid {
+  .resume-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem 1.25rem 0.5rem 1.25rem;
   }
-  .resume-doc-header {
+  .resume-header {
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
     gap: 1rem;
-    margin-top: -30px;
+    margin-top: -24px;
   }
-  .resume-header-left {
+  .resume-header-info {
     padding-left: 0;
     text-align: center;
   }
-  .resume-job-title {
+  .resume-role-text {
     margin-left: 0;
     text-align: center;
   }
-  .resume-photo-frame {
+  .resume-portrait-frame {
     margin-top: 0;
     width: 130px;
     height: 130px;
   }
-  .resume-skills-strip {
+  .resume-skills-row {
     gap: 1rem;
   }
 }
@@ -3000,37 +2958,166 @@ body.light-theme .resume-image-card {
   }
 
   /* ========================================================================
-     HARDCODED RESUME CARD PRINT STYLES (100% PERFECT FIT ON 1 SHEET)
+     PRETTY HTML & CSS RESUME CARD PRINT STYLES (100% PERFECT FIT ON 1 SHEET)
      ======================================================================== */
-  body.printing-resume .resume-card-container,
-  body:has(#resume-modal-overlay.open) .resume-card-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  body.printing-resume .pretty-resume-card,
+  body:has(#resume-modal-overlay.open) .pretty-resume-card {
+    display: block !important;
+    position: relative !important;
     width: 100% !important;
-    height: 100% !important;
+    max-width: 580px !important;
     margin: 0 auto !important;
     padding: 0 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  body.printing-resume .resume-image-card,
-  body:has(#resume-modal-overlay.open) .resume-image-card {
-    max-height: 96vh !important;
-    max-width: 92vw !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
-    border: none !important;
-    border-radius: 12px !important;
+    background: #b8c6f2 !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
     box-shadow: none !important;
+    overflow: hidden !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
-    display: block !important;
+  }
+
+  body.printing-resume .pretty-resume-card *,
+  body:has(#resume-modal-overlay.open) .pretty-resume-card * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body.printing-resume .resume-checkers,
+  body:has(#resume-modal-overlay.open) .resume-checkers {
+    height: 48px !important;
+    background-color: #ffffff !important;
+    background-image: 
+      linear-gradient(45deg, #446bf2 25%, transparent 25%), 
+      linear-gradient(-45deg, #446bf2 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #446bf2 75%), 
+      linear-gradient(-45deg, transparent 75%, #446bf2 75%) !important;
+    background-size: 20px 20px !important;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px !important;
+  }
+
+  body.printing-resume .resume-header,
+  body:has(#resume-modal-overlay.open) .resume-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    padding: 0 1.5rem 0.35rem 1.4rem !important;
+    margin-top: -12px !important;
+  }
+
+  body.printing-resume .resume-name-ribbon,
+  body:has(#resume-modal-overlay.open) .resume-name-ribbon {
+    background: #111a48 !important;
+    padding: 0.5rem 2.2rem 0.5rem 1.3rem !important;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%) !important;
+  }
+
+  body.printing-resume .resume-name-text,
+  body:has(#resume-modal-overlay.open) .resume-name-text {
+    color: #c5d4fc !important;
+    font-size: 1.5rem !important;
+  }
+
+  body.printing-resume .resume-role-text,
+  body:has(#resume-modal-overlay.open) .resume-role-text {
+    color: #111a48 !important;
+    font-size: 0.9rem !important;
+  }
+
+  body.printing-resume .resume-portrait-frame,
+  body:has(#resume-modal-overlay.open) .resume-portrait-frame {
+    width: 135px !important;
+    height: 135px !important;
+    border: 3.5px solid #a84738 !important;
+    background: #ffffff !important;
+    margin-top: -30px !important;
+  }
+
+  body.printing-resume .resume-grid,
+  body:has(#resume-modal-overlay.open) .resume-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr !important;
+    gap: 1.1rem !important;
+    padding: 0.8rem 1.5rem 0.3rem 1.5rem !important;
+  }
+
+  body.printing-resume .resume-pill-card,
+  body:has(#resume-modal-overlay.open) .resume-pill-card {
+    background: #9db2f0 !important;
+    border-radius: 18px !important;
+    padding: 0.9rem 1rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  body.printing-resume .resume-about-paragraph,
+  body:has(#resume-modal-overlay.open) .resume-about-paragraph {
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
+    color: #111a48 !important;
+  }
+
+  body.printing-resume .resume-contact-row,
+  body:has(#resume-modal-overlay.open) .resume-contact-row {
+    font-size: 0.76rem !important;
+    color: #111a48 !important;
+  }
+
+  body.printing-resume .resume-timeline-track::before,
+  body:has(#resume-modal-overlay.open) .resume-timeline-track::before {
+    background: #9f4335 !important;
+  }
+
+  body.printing-resume .resume-track-dot,
+  body:has(#resume-modal-overlay.open) .resume-track-dot {
+    background: #9f4335 !important;
+  }
+
+  body.printing-resume .resume-school-title,
+  body:has(#resume-modal-overlay.open) .resume-school-title {
+    color: #13399b !important;
+    font-size: 0.88rem !important;
+  }
+
+  body.printing-resume .resume-school-course,
+  body:has(#resume-modal-overlay.open) .resume-school-course,
+  body.printing-resume .resume-school-date,
+  body:has(#resume-modal-overlay.open) .resume-school-date {
+    color: #111a48 !important;
+    font-size: 0.8rem !important;
+  }
+
+  body.printing-resume .resume-badge-divider-row,
+  body:has(#resume-modal-overlay.open) .resume-badge-divider-row {
+    display: flex !important;
+    padding: 0.15rem 1.5rem !important;
+  }
+
+  body.printing-resume .resume-bar-line,
+  body:has(#resume-modal-overlay.open) .resume-bar-line {
+    background: #234c90 !important;
+  }
+
+  body.printing-resume .resume-center-badge,
+  body:has(#resume-modal-overlay.open) .resume-center-badge {
+    background: #0b3780 !important;
+    color: #ffffff !important;
+  }
+
+  body.printing-resume .resume-skills-row,
+  body:has(#resume-modal-overlay.open) .resume-skills-row {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.4rem !important;
+    padding: 0.25rem 1.5rem 0.5rem 1.5rem !important;
+  }
+
+  body.printing-resume .resume-interests-row,
+  body:has(#resume-modal-overlay.open) .resume-interests-row {
+    display: flex !important;
+    justify-content: space-around !important;
+    padding: 0.3rem 1.75rem 0.8rem 1.75rem !important;
   }
 }
 

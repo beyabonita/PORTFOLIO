@@ -4,6 +4,17 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:47] - Safe In-Place Click Handling for Unattached Certificates
+
+- **Scope & Objective**: Configured certificate buttons with no attached scans (Cards 5, 6, 7, and 8) to remain clickable in-place with tactile hover/press effects, without navigating away or redirecting to empty external pages.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Replaced `target="_blank"` and `href="#"` with `href="javascript:void(0)"` and `role="button"` on unattached certificate cards.
+  - [`js/main.js`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/js/main.js): Updated `initCertificateModals()` to verify whether `data-img` is present before opening the modal; displays a gentle in-place toast notification (*"Official credential scan for this certificate will be uploaded soon."*) when clicked without an image.
+- **Verification & Testing**:
+  - Verified syntax via Node.js, committed to GitHub, and deployed to Vercel production.
+
+---
+
 ### [2026-10-16 06:41] - Integrated 3 Additional Official Certificate Scans
 
 - **Scope & Objective**: Attached Bea M. Nicor's authentic certificate scans to Cards 2, 3, and 4:

@@ -708,19 +708,24 @@ function initCertificateModals() {
 
   previewBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const card = btn.closest('.cert-card');
       if (!card) return;
 
-      e.preventDefault();
+      const certImg = card.dataset.img || btn.dataset.certImg;
+
+      // If there is NO attached image scan, stay on page and show gentle toast
+      if (!certImg) {
+        if (typeof showToast === 'function') {
+          showToast('Official credential scan for this certificate will be uploaded soon.', 'info');
+        }
+        return;
+      }
+
+      // If an authentic scan is attached, display in modal
       const titleElem = card.querySelector('.cert-title');
       const title = titleElem ? titleElem.textContent.trim() : 'Certificate Credential';
-      const orgElem = card.querySelector('.cert-org');
-      const org = orgElem ? orgElem.textContent.trim() : (card.dataset.org || 'Academic / Technical Program');
-      const dateElem = card.querySelector('.cert-date');
-      const date = dateElem ? dateElem.textContent.trim() : (card.dataset.date || 'Verified Completion');
-      const certImg = card.dataset.img || btn.dataset.certImg || 'assets/images/certificate-placeholder.svg';
-      const certDesc = card.dataset.desc || (card.dataset.img ? 'Official verified credential document.' : 'This official certificate image placeholder can be replaced with your actual credential scan or completion document (PNG/JPG/PDF).');
-      
+
       const modalTitle = document.getElementById('modal-cert-title');
       const modalImg = document.getElementById('modal-cert-img');
 

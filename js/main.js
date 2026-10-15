@@ -485,7 +485,8 @@ function initProjectModals() {
       featList.appendChild(li);
     });
 
-    document.getElementById('modal-project-role').textContent = data.role;
+    const roleEl = document.getElementById('modal-project-role');
+    if (roleEl) roleEl.textContent = data.role;
 
     // Tech tags
     const techWrap = document.getElementById('modal-project-tech');

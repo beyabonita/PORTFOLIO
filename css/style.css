@@ -516,6 +516,27 @@ a {
   transform: translateY(0);
 }
 
+#sound-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+#sound-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.ctrl-btn.active#btn-sound-toggle {
+  background: rgba(244, 114, 182, 0.2);
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  box-shadow: 0 0 12px var(--accent-pink-glow);
+}
+
 /* Circular Control Buttons */
 .ctrl-btn-circle {
   width: 36px;

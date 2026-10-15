@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initProjectModals();
   initCertificateModals();
+  initCertificatesToggle();
   initContactForm();
   initHeroActions();
   initProgressBarAnimations();
@@ -696,12 +697,12 @@ window.addEventListener('afterprint', () => {
 });
 
 /* ==========================================================================
-   8. CERTIFICATE MODAL
+   8. CERTIFICATE MODAL & VIEW MORE TOGGLE
    ========================================================================== */
 function initCertificateModals() {
   const certModal = document.getElementById('cert-modal-overlay');
   const certClose = document.getElementById('cert-modal-close');
-  const previewBtns = document.querySelectorAll('.btn-cert-preview, .cert-thumb-wrap');
+  const previewBtns = document.querySelectorAll('.btn-cert-preview, .cert-link');
 
   if (!certModal) return;
 
@@ -709,13 +710,28 @@ function initCertificateModals() {
     btn.addEventListener('click', (e) => {
       const card = btn.closest('.cert-card');
       if (!card) return;
-      const title = card.querySelector('.cert-title').textContent;
-      const org = card.querySelector('.cert-org').textContent;
-      const date = card.querySelector('.cert-date').textContent;
+
+      const href = btn.getAttribute('href');
+      // If a real external url or file path is linked, open normally
+      if (href && href !== '#' && !href.startsWith('javascript')) {
+        return;
+      }
+
+      e.preventDefault();
+      const titleElem = card.querySelector('.cert-title');
+      const title = titleElem ? titleElem.textContent.trim() : 'Certificate Credential';
+      const orgElem = card.querySelector('.cert-org');
+      const org = orgElem ? orgElem.textContent.trim() : (card.dataset.org || 'Academic / Technical Program');
+      const dateElem = card.querySelector('.cert-date');
+      const date = dateElem ? dateElem.textContent.trim() : (card.dataset.date || 'Verified Completion');
       
-      document.getElementById('modal-cert-title').textContent = title;
-      document.getElementById('modal-cert-org').textContent = org;
-      document.getElementById('modal-cert-date').textContent = date;
+      const modalTitle = document.getElementById('modal-cert-title');
+      const modalOrg = document.getElementById('modal-cert-org');
+      const modalDate = document.getElementById('modal-cert-date');
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalOrg) modalOrg.textContent = org;
+      if (modalDate) modalDate.textContent = date;
 
       certModal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -730,6 +746,42 @@ function initCertificateModals() {
   if (certClose) certClose.addEventListener('click', closeCertModal);
   certModal.addEventListener('click', (e) => {
     if (e.target === certModal) closeCertModal();
+  });
+}
+
+function initCertificatesToggle() {
+  const toggleBtn = document.getElementById('btn-toggle-certs');
+  if (!toggleBtn) return;
+
+  const extraCards = document.querySelectorAll('.cert-card-extra');
+  const btnText = toggleBtn.querySelector('.btn-toggle-text');
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+    if (!isExpanded) {
+      // Expand extra cards
+      extraCards.forEach((card, index) => {
+        card.classList.add('is-visible');
+        card.style.animationDelay = `${index * 0.08}s`;
+      });
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      if (btnText) btnText.textContent = 'View Less';
+    } else {
+      // Collapse back
+      extraCards.forEach(card => {
+        card.classList.remove('is-visible');
+        card.style.animationDelay = '';
+      });
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      if (btnText) btnText.textContent = 'View More';
+
+      // Smooth scroll back to keep view focused
+      const certsSection = document.getElementById('certificates');
+      if (certsSection) {
+        certsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   });
 }
 

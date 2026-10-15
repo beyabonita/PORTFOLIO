@@ -4,6 +4,18 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:11] - Official Certificate Scan Attached to Basics of Data Structures & Algorithms
+
+- **Scope & Objective**: Attached Bea M. Nicor's official Simplilearn certificate scan (Certificate Code: 9443168, dated 21st November 2025) to the "Basics of Data Structure and Algorithms" card and credential modal.
+- **Files Modified / Added**:
+  - `assets/images/cert-dsa-simplilearn.png`: Saved user's high-resolution Simplilearn certificate scan.
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Configured Card 1 with `data-img` and direct link to the image; updated modal body with `#modal-cert-img`, `#modal-cert-desc`, and an "Open High-Resolution Scan" download/view button.
+  - [`js/main.js`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/js/main.js): Enhanced `initCertificateModals()` to dynamically populate the certificate image scan and download action when clicking "Show credential".
+- **Key Implementation Details**:
+  - Clicking "Show credential" on Card 1 immediately launches the modal featuring the real high-res certificate image issued to Bea M. Nicor.
+
+---
+
 ### [2026-10-16 06:07] - Cisco & Coursera Verified Credentials Integration
 
 - **Scope & Objective**: Added 4 additional verified certificates from Cisco and Coursera to the expandable "View More" grid:

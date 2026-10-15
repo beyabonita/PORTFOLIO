@@ -711,12 +711,6 @@ function initCertificateModals() {
       const card = btn.closest('.cert-card');
       if (!card) return;
 
-      const href = btn.getAttribute('href');
-      // If a real external url or file path is linked, open normally
-      if (href && href !== '#' && !href.startsWith('javascript')) {
-        return;
-      }
-
       e.preventDefault();
       const titleElem = card.querySelector('.cert-title');
       const title = titleElem ? titleElem.textContent.trim() : 'Certificate Credential';
@@ -724,14 +718,29 @@ function initCertificateModals() {
       const org = orgElem ? orgElem.textContent.trim() : (card.dataset.org || 'Academic / Technical Program');
       const dateElem = card.querySelector('.cert-date');
       const date = dateElem ? dateElem.textContent.trim() : (card.dataset.date || 'Verified Completion');
+      const certImg = card.dataset.img || btn.dataset.certImg || 'assets/images/certificate-placeholder.svg';
+      const certDesc = card.dataset.desc || (card.dataset.img ? 'Official verified credential document.' : 'This official certificate image placeholder can be replaced with your actual credential scan or completion document (PNG/JPG/PDF).');
       
       const modalTitle = document.getElementById('modal-cert-title');
       const modalOrg = document.getElementById('modal-cert-org');
       const modalDate = document.getElementById('modal-cert-date');
+      const modalImg = document.getElementById('modal-cert-img');
+      const modalDesc = document.getElementById('modal-cert-desc');
+      const modalDownload = document.getElementById('modal-cert-download');
 
       if (modalTitle) modalTitle.textContent = title;
       if (modalOrg) modalOrg.textContent = org;
       if (modalDate) modalDate.textContent = date;
+      if (modalImg) modalImg.src = certImg;
+      if (modalDesc) modalDesc.textContent = certDesc;
+      if (modalDownload) {
+        if (card.dataset.img) {
+          modalDownload.style.display = 'inline-flex';
+          modalDownload.href = card.dataset.img;
+        } else {
+          modalDownload.style.display = 'none';
+        }
+      }
 
       certModal.classList.add('open');
       document.body.style.overflow = 'hidden';

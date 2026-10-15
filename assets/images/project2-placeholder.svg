@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b101d"/>
+      <stop offset="50%" stop-color="#14192d"/>
+      <stop offset="100%" stop-color="#1d162a"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(244, 114, 182, 0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGrad2)"/>
+  <rect width="1280" height="720" fill="url(#grid2)"/>
+
+  <circle cx="250" cy="520" r="180" fill="rgba(244,114,182,0.1)" filter="blur(60px)"/>
+  <circle cx="1000" cy="180" r="190" fill="rgba(129,140,248,0.12)" filter="blur(70px)"/>
+
+  <!-- Window Frame -->
+  <rect x="80" y="60" width="1120" height="600" rx="20" fill="#0f1325" stroke="rgba(244, 114, 182, 0.3)" stroke-width="2"/>
+  
+  <!-- Window Header -->
+  <path d="M 80 80 Q 80 60 100 60 L 1180 60 Q 1200 60 1200 80 L 1200 115 L 80 115 Z" fill="#161c35"/>
+  <circle cx="115" cy="88" r="7" fill="#f43f5e" opacity="0.8"/>
+  <circle cx="138" cy="88" r="7" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="161" cy="88" r="7" fill="#34d399" opacity="0.8"/>
+  <text x="640" y="93" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" text-anchor="middle" letter-spacing="1">PROJECT 02 // MCC SEAFOOD RESTAURANT RESERVATION SYSTEM</text>
+
+  <!-- Center Content -->
+  <g transform="translate(640, 290)">
+    <circle cx="0" cy="0" r="60" fill="rgba(244, 114, 182, 0.1)" stroke="url(#pinkGrad2)" stroke-width="2.5"/>
+    <rect x="-28" y="-18" width="56" height="38" rx="6" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+    <circle cx="0" cy="1" r="10" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+    <circle cx="17" cy="-9" r="3" fill="#f472b6"/>
+    <path d="M -12 -18 L -6 -26 L 6 -26 L 12 -18" fill="none" stroke="#f472b6" stroke-width="2"/>
+  </g>
+
+  <text x="640" y="400" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" text-anchor="middle" letter-spacing="0.5">
+    16:9 System Screenshot Area
+  </text>
+  <text x="640" y="440" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+    Online Reservation Management System for MCC Seafood Restaurant
+  </text>
+  <text x="640" y="475" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" text-anchor="middle">
+    Easily replaceable placeholder • Place your real screenshot in assets/images/
+  </text>
+
+  <rect x="80" y="60" width="1120" height="600" rx="20" fill="none" stroke="url(#pinkGrad2)" stroke-width="1.5" stroke-dasharray="8 6"/>
+</svg>

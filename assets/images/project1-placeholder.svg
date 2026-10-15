@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0e1a"/>
+      <stop offset="50%" stop-color="#14182b"/>
+      <stop offset="100%" stop-color="#1b162b"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <pattern id="grid1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(236, 72, 153, 0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bgGrad1)"/>
+  <rect width="1280" height="720" fill="url(#grid1)"/>
+
+  <!-- Decorative ambient glows -->
+  <circle cx="200" cy="150" r="160" fill="rgba(236,72,153,0.12)" filter="blur(60px)"/>
+  <circle cx="1080" cy="570" r="200" fill="rgba(168,85,247,0.12)" filter="blur(70px)"/>
+
+  <!-- Window Frame -->
+  <rect x="80" y="60" width="1120" height="600" rx="20" fill="#0f1224" stroke="rgba(236, 72, 153, 0.3)" stroke-width="2"/>
+  
+  <!-- Window Header -->
+  <path d="M 80 80 Q 80 60 100 60 L 1180 60 Q 1200 60 1200 80 L 1200 115 L 80 115 Z" fill="#161b33"/>
+  <circle cx="115" cy="88" r="7" fill="#f43f5e" opacity="0.8"/>
+  <circle cx="138" cy="88" r="7" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="161" cy="88" r="7" fill="#34d399" opacity="0.8"/>
+  <text x="640" y="93" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" text-anchor="middle" letter-spacing="1">PROJECT 01 // SECURITY AGENCY SYSTEM &amp; MOBILE APP</text>
+
+  <!-- Center Content -->
+  <!-- Tech Camera / Placeholder Icon -->
+  <g transform="translate(640, 290)">
+    <circle cx="0" cy="0" r="60" fill="rgba(236, 72, 153, 0.1)" stroke="url(#pinkGrad)" stroke-width="2.5"/>
+    <rect x="-28" y="-18" width="56" height="38" rx="6" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+    <circle cx="0" cy="1" r="10" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+    <circle cx="17" cy="-9" r="3" fill="#f472b6"/>
+    <path d="M -12 -18 L -6 -26 L 6 -26 L 12 -18" fill="none" stroke="#f472b6" stroke-width="2"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="640" y="400" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" text-anchor="middle" letter-spacing="0.5">
+    16:9 System Screenshot Area
+  </text>
+  <text x="640" y="440" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+    Web Based Security Agency Management System
+  </text>
+  <text x="640" y="475" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" text-anchor="middle">
+    Easily replaceable placeholder • Place your real screenshot in assets/images/
+  </text>
+
+  <!-- Frame border glow -->
+  <rect x="80" y="60" width="1120" height="600" rx="20" fill="none" stroke="url(#pinkGrad)" stroke-width="1.5" stroke-dasharray="8 6"/>
+</svg>

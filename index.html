@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bea Matias Nicor | Bea.dev — Information Systems &amp; Developer Portfolio</title>
+  <meta name="description" content="Personal portfolio of Bea Matias Nicor — Information Systems student, aspiring programmer, and tech explorer specializing in web systems, database design, and cybersecurity.">
+  <meta name="author" content="Bea Matias Nicor">
+  <meta name="theme-color" content="#0a0d18">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+
+  <!-- Background Cyber Pattern Grid -->
+  <div class="bg-pattern-grid"></div>
+
+  <!-- Animated Pink Glitter Canvas -->
+  <canvas id="glitter-canvas"></canvas>
+
+  <!-- ========================================================================
+       1. HEADER AND NAVIGATION BAR (MATCHING REFERENCE LAYOUT)
+       ======================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      
+      <!-- Left Side: BMN Logo & Bea.dev Brand -->
+      <a href="#hero" class="brand-logo" aria-label="Bea Matias Nicor Portfolio Home">
+        <div class="logo-badge">
+          <span>BMN</span>
+        </div>
+        <div class="brand-name">
+          <span class="name-part">Bea</span><span class="ext-part">.dev</span>
+        </div>
+      </a>
+
+      <!-- Center Navigation (Exact reference order & items) -->
+      <nav class="header-nav" id="header-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#security-lab" class="nav-link">Security Lab</a></li>
+          <li><a href="#tools" class="nav-link">Tools</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certificates" class="nav-link">Certificates</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Side: Header Controls (Functional compact buttons) -->
+      <div class="header-controls">
+        <!-- 1. Circular Accent-Color Button -->
+        <button class="ctrl-btn ctrl-btn-circle" id="btn-accent-toggle" title="Switch Accent Palette (Pink / Lavender / Rose Gold)" aria-label="Change Color Theme Accent">
+          <span class="accent-indicator" id="accent-indicator"></span>
+        </button>
+
+        <!-- 2. Sound Toggle Button -->
+        <button class="ctrl-btn ctrl-btn-circle" id="btn-sound-toggle" title="Toggle UI Sound Effects" aria-label="Toggle Sound Effects">
+          <span id="sound-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 3. Resume Button with Document Icon -->
+        <button class="ctrl-btn ctrl-btn-resume" id="btn-header-resume" title="View &amp; Download Resume" aria-label="Open Resume Document">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Resume</span>
+        </button>
+
+        <!-- 4. Theme / Settings Button -->
+        <button class="ctrl-btn ctrl-btn-circle" id="btn-theme-toggle" title="Toggle Dark/Light Mode" aria-label="Toggle Theme Mode">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- 5. Print Button with Printer Icon -->
+        <button class="ctrl-btn ctrl-btn-circle" id="btn-print" title="Print Clean Portfolio / Save as PDF" aria-label="Print Portfolio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       4. HERO SECTION (MATCHING SCREENSHOT LAYOUT)
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-card">
+        
+        <!-- Left Side: Circular Profile Photo with Bright Pink Border & Cap Badge -->
+        <div class="hero-left">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar-glow"></div>
+            <div class="profile-avatar-inner">
+              <img src="assets/images/profile.png" alt="Bea Nicor — Profile Photo" class="profile-img" id="hero-profile-image">
+            </div>
+            <!-- Overlapping Graduation Cap Badge -->
+            <div class="avatar-badge-cap" title="Carlos Hilado Memorial State University — BSIS">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Introduction & Information -->
+        <div class="hero-right">
+          <div class="hero-subtitle-badge">
+            <span class="code-tag">&lt;/&gt;</span>
+            <span>HELLO, I'M</span>
+          </div>
+
+          <h1 class="hero-name">Bea Nicor</h1>
+
+          <div class="hero-tagline text-gradient">
+            UI/UX DESIGNER &amp; INFORMATION SYSTEMS STUDENT
+          </div>
+
+          <p class="hero-description">
+            I'm a UI/UX designer and Information Systems student passionate about creating clean, intuitive, and user-friendly digital experiences. I focus on understanding user needs and solving problems through simple, functional, and visually appealing designs.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" id="btn-hero-projects">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span>Projects</span>
+            </a>
+
+            <a href="#security-lab" class="btn btn-secondary" id="btn-hero-security">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Security Lab</span>
+            </a>
+
+            <button class="btn btn-secondary" id="btn-hero-resume">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Resume</span>
+            </button>
+
+            <button class="btn btn-outline" id="btn-copy-email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+
+          <!-- Thin Divider -->
+          <div class="hero-divider"></div>
+
+          <!-- Rounded Contact-Information Chips with Icons -->
+          <div class="hero-contact-chips">
+            <div class="contact-chip" title="Contact Phone Number">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>09197564914</span>
+            </div>
+
+            <div class="contact-chip" title="Official Contact Email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>bmnicor.chmsu@gmail.com</span>
+            </div>
+
+            <div class="contact-chip" title="Location">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Brgy. Lantad, Silay City, Negros Occidental</span>
+            </div>
+
+            <div class="contact-chip" title="Academic Department">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>Carlos Hilado Memorial State University</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. ABOUT SECTION
+       ======================================================================== -->
+  <section class="content-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 01 }</span>
+          <span>GET TO KNOW ME</span>
+        </div>
+        <h2 class="section-title">Bridging <span class="text-gradient">Information Systems</span> &amp; Modern Code</h2>
+        <p class="section-subtitle">
+          Dedicated student exploring how technological frameworks, database engines, and secure architectures solve real-world organizational challenges.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Main Bio Card -->
+        <div class="tech-card about-main-card">
+          <p class="about-text-lead">
+            I'm a UI/UX designer passionate about creating clean, intuitive, and user-friendly digital experiences. I focus on understanding user needs and solving problems through simple, functional, and visually appealing designs.
+          </p>
+          <p class="about-text-para">
+            Currently an undergraduate student taking up <strong>Bachelor of Science in Information System (Class of 2026)</strong> at <strong>Carlos Hilado Memorial State University</strong>, following my secondary technical foundation in <strong>Computer System Servicing (2019)</strong> at <strong>Doña Montserrat Lopez Memorial High School</strong>.
+          </p>
+          <p class="about-text-para">
+            Beyond interface aesthetics, my training in Information Systems allows me to connect user-centric designs with robust data structures, system architecture analysis, database normalization (MySQL), and secure web development.
+          </p>
+
+          <!-- Core Interest Pills from Resume -->
+          <div class="about-interests-grid">
+            <div class="interest-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+              </svg>
+              <span>UI/UX Design &amp; Prototyping</span>
+            </div>
+
+            <div class="interest-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Photography &amp; Visual Media</span>
+            </div>
+
+            <div class="interest-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+              <span>Videography &amp; Video Editing</span>
+            </div>
+
+            <div class="interest-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+              <span>Music &amp; Creative Arts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic & Growth Side Highlights -->
+        <div class="about-side-cards">
+          <div class="tech-card stat-card">
+            <div class="stat-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h4>3 Capstone Systems</h4>
+              <p>Academic &amp; practical enterprise systems developed</p>
+            </div>
+          </div>
+
+          <div class="tech-card stat-card">
+            <div class="stat-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m4.93 4.93 4.24 4.24"></path>
+                <path d="m14.83 9.17 4.24-4.24"></path>
+                <path d="m14.83 14.83 4.24 4.24"></path>
+                <path d="m9.17 14.83-4.24 4.24"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h4>System-First Mindset</h4>
+              <p>Focusing on workflows, data schemas, and reliability</p>
+            </div>
+          </div>
+
+          <div class="tech-card stat-card">
+            <div class="stat-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <h4>Continuous Learner</h4>
+              <p>Always expanding knowledge in emerging frameworks &amp; IT tools</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. PROJECTS SECTION (EXACTLY THREE SPECIFIC PROJECTS)
+       ======================================================================== -->
+  <section class="content-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 02 }</span>
+          <span>FEATURED WORK</span>
+        </div>
+        <h2 class="section-title">Academic &amp; Capstone <span class="text-gradient">Projects</span></h2>
+        <p class="section-subtitle">
+          Three featured information systems designed to automate real operations, streamline data management, and provide clean user experiences.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        
+        <!-- PROJECT 1 -->
+        <article class="project-card">
+          <!-- 16:9 Screenshot Area -->
+          <div class="project-media-wrapper" data-project="project1" title="Click to view details or replace screenshot">
+            <img src="assets/images/project1-placeholder.svg" alt="Security Agency Management System Screenshot" class="project-media-img" data-project-img="project1">
+            <span class="project-badge-tag">PROJECT 01</span>
+          </div>
+
+          <div class="project-card-body">
+            <h3 class="project-title" title="WEB BASED SECURITY AGENCY MANAGEMENT SYSTEM WITH MOBILE APPLICATION FOR REALTIME MONITORING">
+              WEB BASED SECURITY AGENCY MANAGEMENT SYSTEM WITH MOBILE APPLICATION FOR REALTIME MONITORING
+            </h3>
+
+            <p class="project-desc">
+              An enterprise platform coordinating security personnel deployments, duty rosters, incident notifications, and GPS-verified mobile checkpoint checks for agency field operations.
+            </p>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+
+            <!-- Exactly ONE button: VIEW PROJECT -->
+            <button class="btn-view-project" data-project="project1">
+              <span>VIEW PROJECT</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-card">
+          <!-- 16:9 Screenshot Area -->
+          <div class="project-media-wrapper" data-project="project2" title="Click to view details or replace screenshot">
+            <img src="assets/images/project2-placeholder.svg" alt="Online Reservation Management System for MCC Seafood Restaurant Screenshot" class="project-media-img" data-project-img="project2">
+            <span class="project-badge-tag">PROJECT 02</span>
+          </div>
+
+          <div class="project-card-body">
+            <h3 class="project-title" title="ONLINE RESERVATION MANAGEMENT SYSTEM FOR MCC SEAFOOD RESTAURANT">
+              ONLINE RESERVATION MANAGEMENT SYSTEM FOR MCC SEAFOOD RESTAURANT
+            </h3>
+
+            <p class="project-desc">
+              A specialized reservation management portal for MCC Seafood Restaurant, providing automated table allocation, guest bookings, and floor capacity optimization.
+            </p>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5/CSS3</span>
+              <span class="tech-tag">AJAX</span>
+            </div>
+
+            <!-- Exactly ONE button: VIEW PROJECT -->
+            <button class="btn-view-project" data-project="project2">
+              <span>VIEW PROJECT</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-card">
+          <!-- 16:9 Screenshot Area -->
+          <div class="project-media-wrapper" data-project="project3" title="Click to view details or replace screenshot">
+            <img src="assets/images/project3-placeholder.svg" alt="KARE: Restaurant Reservation and Ordering System Screenshot" class="project-media-img" data-project-img="project3">
+            <span class="project-badge-tag">PROJECT 03</span>
+          </div>
+
+          <div class="project-card-body">
+            <h3 class="project-title" title="KARE: RESTAURANT RESERVATION AND ORDERING SYSTEM">
+              KARE: RESTAURANT RESERVATION AND ORDERING SYSTEM
+            </h3>
+
+            <p class="project-desc">
+              An integrated restaurant management solution harmonizing dining room reservations with advance meal ordering, automated order queues, and bill calculation.
+            </p>
+
+            <div class="project-tech-tags">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JSON API</span>
+            </div>
+
+            <!-- Exactly ONE button: VIEW PROJECT -->
+            <button class="btn-view-project" data-project="project3">
+              <span>VIEW PROJECT</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. SECURITY LAB SECTION
+       ======================================================================== -->
+  <section class="content-section" id="security-lab">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 03 }</span>
+          <span>CYBERSECURITY &amp; SYSTEM DEFENSE</span>
+        </div>
+        <h2 class="section-title">Information Systems <span class="text-gradient">Security Lab</span></h2>
+        <p class="section-subtitle">
+          Academic hands-on explorations in defense-in-depth, access control modeling, input validation, and secure web application development.
+        </p>
+      </div>
+
+      <div class="security-lab-grid">
+        <!-- Interactive Terminal Simulator -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">is-security-lab@bea.dev:~</div>
+            <div class="font-code" style="font-size: 0.75rem; color: #f472b6;">BASH // SIMULATOR</div>
+          </div>
+          
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">system@init:~$</span>
+              <span>Loaded IS Security Sandbox environment v2.4</span>
+            </div>
+            <div class="terminal-line">
+              <span class="terminal-prompt">system@init:~$</span>
+              <span>Type <span style="color: #f472b6; font-weight: 600;">help</span>, <span style="color: #f472b6; font-weight: 600;">status</span>, <span style="color: #f472b6; font-weight: 600;">rbac</span>, <span style="color: #f472b6; font-weight: 600;">sqli</span>, or <span style="color: #f472b6; font-weight: 600;">hash</span> to explore concepts.</span>
+            </div>
+
+            <div class="terminal-input-row">
+              <span class="terminal-prompt">bea@security-lab:~$</span>
+              <input type="text" id="terminal-input" class="terminal-input" placeholder="Type command (e.g., help, rbac, sqli)..." autocomplete="off" spellcheck="false">
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Study & Practice Modules -->
+        <div class="security-modules-list">
+          <div class="sec-card">
+            <div class="sec-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div class="sec-info">
+              <h4>Role-Based Access Control (RBAC)</h4>
+              <p>Studying multi-tier authorization matrix implementations to enforce least privilege between administrators, managers, and standard staff accounts.</p>
+            </div>
+          </div>
+
+          <div class="sec-card">
+            <div class="sec-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="sec-info">
+              <h4>SQL Injection Defense &amp; Query Parameterization</h4>
+              <p>Analyzing how prepared statements and PDO binding eliminate malicious SQL payload vectors in form submissions and REST API queries.</p>
+            </div>
+          </div>
+
+          <div class="sec-card">
+            <div class="sec-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="sec-info">
+              <h4>Session Management &amp; Cryptographic Hashing</h4>
+              <p>Exploring salted bcrypt password encryption, secure session tokens, SameSite flags, and CSRF token verification across web forms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. TOOLS SECTION
+       ======================================================================== -->
+  <section class="content-section" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 04 }</span>
+          <span>TECH ARSENAL</span>
+        </div>
+        <h2 class="section-title">Developer &amp; System <span class="text-gradient">Tools</span></h2>
+        <p class="section-subtitle">
+          The software environments, IDEs, and utilities utilized for coding, testing, database design, and systems diagramming.
+        </p>
+      </div>
+
+      <div class="skills-categories-grid">
+        <!-- Category: Design & UI/UX Tools (From Resume: Figma, Ps, Canva) -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+              </svg>
+            </div>
+            <h3>UI/UX &amp; Creative Design</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Figma</span>
+                <span class="skill-badge">UI/UX &amp; Wireframing</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Adobe Photoshop (Ps)</span>
+                <span class="skill-badge">Graphic Editing</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Canva Pro</span>
+                <span class="skill-badge">Visual Assets</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Responsive Design</span>
+                <span class="skill-badge">Mobile &amp; Web</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Programming & Data (From Resume: Python, SQL, JS, PHP) -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3>Programming &amp; Databases</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Python</span>
+                <span class="skill-badge">Core Logic &amp; Scripting</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">JavaScript &amp; HTML5/CSS3</span>
+                <span class="skill-badge">Web Frontend</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">PHP &amp; MySQL</span>
+                <span class="skill-badge">Backend &amp; Relational DB</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 84%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Database Normalization</span>
+                <span class="skill-badge">ERD &amp; Schema Design</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category: Productivity, Systems & Servicing (From Resume: Word, CSS Servicing) -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <h3>Systems &amp; Documentation</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Microsoft Word / Office</span>
+                <span class="skill-badge">System Docs</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Computer System Servicing</span>
+                <span class="skill-badge">Hardware &amp; Network</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Systems Analysis (DFD &amp; UML)</span>
+                <span class="skill-badge">Process Flow</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 84%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Git &amp; VS Code</span>
+                <span class="skill-badge">Development Tools</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 82%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. EDUCATION SECTION
+       ======================================================================== -->
+  <section class="content-section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 05 }</span>
+          <span>ACADEMIC BACKGROUND</span>
+        </div>
+        <h2 class="section-title">Education &amp; <span class="text-gradient">Degree Program</span></h2>
+        <p class="section-subtitle">
+          Formal academic training in Information Systems, systems architecture, and computing foundations.
+        </p>
+      </div>
+
+      <div class="education-container">
+        <div class="timeline">
+          
+          <!-- Education Item 1: Carlos Hilado Memorial State University -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="tech-card education-card">
+              <div class="edu-badge-row">
+                <span class="edu-year-badge">UNDERGRADUATE CANDIDATE // CLASS OF 2026</span>
+                <span class="font-code text-pink">BSIS ( 2026 )</span>
+              </div>
+              
+              <h3 class="edu-degree">Bachelor of Science in Information System</h3>
+              <div class="edu-institution">Carlos Hilado Memorial State University</div>
+              
+              <p class="edu-details">
+                Comprehensive university training combining computing solutions with organizational workflows. Coursework includes Systems Analysis &amp; Design, Relational Database Management Systems, Web Application Development, Human-Computer Interaction, UI/UX Prototyping, and IT Project Management.
+              </p>
+
+              <div class="edu-focus-chips">
+                <span class="tech-tag">Systems Analysis &amp; Design</span>
+                <span class="tech-tag">Database Management (MySQL)</span>
+                <span class="tech-tag">UI/UX Prototyping</span>
+                <span class="tech-tag">Web Development</span>
+                <span class="tech-tag">Information Security</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Item 2: Doña Montserrat Lopez Memorial High School -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="tech-card education-card">
+              <div class="edu-badge-row">
+                <span class="edu-year-badge">TECHNICAL FOUNDATION // ( 2019 )</span>
+                <span class="font-code text-pink">CSS ( 2019 )</span>
+              </div>
+              
+              <h3 class="edu-degree">Computer System Servicing</h3>
+              <div class="edu-institution">Doña Montserrat Lopez Memorial High School</div>
+              
+              <p class="edu-details">
+                Hands-on technical foundation covering computer assembly and hardware servicing, operating system deployment and configuration, network cabling and LAN setup, and technical system troubleshooting.
+              </p>
+
+              <div class="edu-focus-chips">
+                <span class="tech-tag">Computer Hardware Servicing</span>
+                <span class="tech-tag">Operating Systems</span>
+                <span class="tech-tag">LAN Networking</span>
+                <span class="tech-tag">System Diagnostics</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. CERTIFICATES SECTION
+       ======================================================================== -->
+  <section class="content-section" id="certificates">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 06 }</span>
+          <span>ACHIEVEMENTS &amp; CREDENTIALS</span>
+        </div>
+        <h2 class="section-title">Certificates &amp; <span class="text-gradient">Training</span></h2>
+        <p class="section-subtitle">
+          Verified academic certificates, seminar attendance, and technical development workshops completed during studies.
+        </p>
+      </div>
+
+      <div class="certificates-grid">
+        
+        <!-- Certificate 1 -->
+        <article class="cert-card">
+          <div class="cert-thumb-wrap" title="Click to preview certificate placeholder">
+            <img src="assets/images/certificate-placeholder.svg" alt="Certificate 1 Placeholder" class="cert-thumb-img">
+          </div>
+          <div class="cert-body">
+            <div class="cert-date">ACADEMIC TRAINING // 2025</div>
+            <h3 class="cert-title">Web Application Development &amp; Database Design</h3>
+            <div class="cert-org">College of Information and Communications Technology</div>
+            <button class="btn-cert-preview">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>View Credential [Editable]</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Certificate 2 -->
+        <article class="cert-card">
+          <div class="cert-thumb-wrap" title="Click to preview certificate placeholder">
+            <img src="assets/images/certificate-placeholder.svg" alt="Certificate 2 Placeholder" class="cert-thumb-img">
+          </div>
+          <div class="cert-body">
+            <div class="cert-date">TECHNICAL SEMINAR // 2025</div>
+            <h3 class="cert-title">Fundamentals of Information Security &amp; Data Ethics</h3>
+            <div class="cert-org">Information Systems Student Organization</div>
+            <button class="btn-cert-preview">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>View Credential [Editable]</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Certificate 3 -->
+        <article class="cert-card">
+          <div class="cert-thumb-wrap" title="Click to preview certificate placeholder">
+            <img src="assets/images/certificate-placeholder.svg" alt="Certificate 3 Placeholder" class="cert-thumb-img">
+          </div>
+          <div class="cert-body">
+            <div class="cert-date">WORKSHOP SERIES // 2024</div>
+            <h3 class="cert-title">Systems Analysis, Modeling &amp; Agile Methodologies</h3>
+            <div class="cert-org">Academic Capstone Preparation Workshop</div>
+            <button class="btn-cert-preview">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>View Credential [Editable]</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8/9. SKILLS SECTION
+       ======================================================================== -->
+  <section class="content-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 07 }</span>
+          <span>CAPABILITIES &amp; PROFICIENCIES</span>
+        </div>
+        <h2 class="section-title">Core <span class="text-gradient">Technical Skills</span></h2>
+        <p class="section-subtitle">
+          Competencies in programming languages, web architecture, database design, and systems engineering.
+        </p>
+      </div>
+
+      <div class="skills-categories-grid">
+        <!-- Programming Languages -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3>Programming Languages</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">JavaScript (ES6+)</span>
+                <span class="skill-badge">Active</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">PHP</span>
+                <span class="skill-badge">Backend Logic</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 82%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">SQL (Structured Query)</span>
+                <span class="skill-badge">Data Queries</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Python / Java Foundations</span>
+                <span class="skill-badge">Academic</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 70%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3>Web Development</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">HTML5 Semantic Structure</span>
+                <span class="skill-badge">Proficient</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">CSS3 &amp; Responsive Layouts</span>
+                <span class="skill-badge">Flex/Grid</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Bootstrap &amp; UI Styling</span>
+                <span class="skill-badge">Framework</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 86%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">RESTful APIs &amp; Fetch</span>
+                <span class="skill-badge">Data Exchange</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Systems Analysis & Design -->
+        <div class="tech-card skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <h3>Systems Analysis &amp; IS Methods</h3>
+          </div>
+          <div class="skill-items-wrap">
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Requirements Elicitation</span>
+                <span class="skill-badge">Core IS</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Data Flow Diagrams (DFD)</span>
+                <span class="skill-badge">Modeling</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">Use Case &amp; UML Diagrams</span>
+                <span class="skill-badge">Specification</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 84%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info-row">
+                <span class="skill-name">SDLC &amp; Agile Principles</span>
+                <span class="skill-badge">Methodology</span>
+              </div>
+              <div class="skill-progress-bar"><div class="skill-progress-fill" style="width: 82%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. CONTACT SECTION
+       ======================================================================== -->
+  <section class="content-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-pretitle">
+          <span class="font-code">{ 08 }</span>
+          <span>GET IN TOUCH</span>
+        </div>
+        <h2 class="section-title">Let's Connect &amp; <span class="text-gradient">Collaborate</span></h2>
+        <p class="section-subtitle">
+          Open to academic project inquiries, internship opportunities, technical discussions, and professional networking.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Information Panel -->
+        <div class="tech-card contact-info-card">
+          <h3 class="contact-info-title">Contact Information</h3>
+          <p class="contact-info-desc">
+            Feel free to reach out directly through email or connect on professional channels. All placeholder information can be customized with your verified accounts.
+          </p>
+
+          <div class="contact-details-list">
+            <div class="contact-item-row">
+              <div class="contact-item-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Email Address</span>
+                <strong>bmnicor.chmsu@gmail.com</strong>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-item-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Phone / Mobile</span>
+                <strong>09197564914</strong>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-item-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-item-text">
+                <span>Location</span>
+                <strong>Brgy. Lantad, Silay City, Negros Occidental</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 1.5rem;">
+            <button class="btn btn-secondary" id="btn-copy-email-2" onclick="navigator.clipboard.writeText('bmnicor.chmsu@gmail.com'); showToast('Email copied: bmnicor.chmsu@gmail.com', 'success');">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="tech-card contact-form-card">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Maria Santos" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject</label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="Project Inquiry / Networking / Question">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Send Message</span>
+            </button>
+            <div class="form-demo-badge font-code">
+              ⚡ Functional demo form • Ready for backend webhook or EmailJS
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       12. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="name-part">Bea</span><span class="ext-part">.dev</span>
+          </div>
+          <p>
+            Personal portfolio of Bea Nicor — UI/UX Designer &amp; Information Systems Student at Carlos Hilado Memorial State University.
+          </p>
+        </div>
+
+        <ul class="footer-nav-list">
+          <li><a href="#about" class="footer-nav-link">About</a></li>
+          <li><a href="#projects" class="footer-nav-link">Projects</a></li>
+          <li><a href="#security-lab" class="footer-nav-link">Security Lab</a></li>
+          <li><a href="#tools" class="footer-nav-link">Tools</a></li>
+          <li><a href="#education" class="footer-nav-link">Education</a></li>
+          <li><a href="#certificates" class="footer-nav-link">Certificates</a></li>
+          <li><a href="#skills" class="footer-nav-link">Skills</a></li>
+          <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; Bea.dev — All rights reserved.
+        </div>
+        <div class="footer-code-icon font-code">
+          <span>&lt;/&gt;</span>
+          <span>Crafted with Clean Code &amp; Pink Neon Spirit</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL 1: PROJECT DETAILS MODAL (VIEW PROJECT)
+       ======================================================================== -->
+  <div class="modal-overlay" id="project-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-project-title">Project Title</h3>
+        <button class="modal-close-btn" id="project-modal-close" aria-label="Close dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Larger Project Screenshot Area -->
+        <div style="position: relative;">
+          <img id="modal-project-img" src="assets/images/project1-placeholder.svg" alt="Project Screenshot Preview">
+          <div style="display: flex; justify-content: flex-end; margin-top: -0.75rem; margin-bottom: 1rem;">
+            <input type="file" id="project-image-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+            <button class="btn btn-outline" id="btn-replace-screenshot" style="font-size: 0.8rem; padding: 0.35rem 0.8rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <span>Upload / Preview My Real Screenshot (Instant Browser Preview)</span>
+            </button>
+          </div>
+        </div>
+
+        <h4 class="modal-section-title">Project Overview</h4>
+        <p class="modal-section-desc" id="modal-project-overview"></p>
+
+        <h4 class="modal-section-title">Problem Being Addressed</h4>
+        <p class="modal-section-desc" id="modal-project-problem"></p>
+
+        <h4 class="modal-section-title">Main Objectives</h4>
+        <ul id="modal-project-objectives" class="modal-section-desc" style="padding-left: 1.5rem; line-height: 1.8;"></ul>
+
+        <h4 class="modal-section-title">Key Features</h4>
+        <ul id="modal-project-features" class="modal-section-desc" style="padding-left: 1.5rem; line-height: 1.8;"></ul>
+
+        <h4 class="modal-section-title">Role and Contributions</h4>
+        <p class="modal-section-desc" id="modal-project-role"></p>
+
+        <h4 class="modal-section-title">Technologies Used</h4>
+        <div id="modal-project-tech" class="project-tech-tags" style="margin-top: 0.5rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: RESUME DOCUMENT MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="resume-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-resume-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-resume-title">Curriculum Vitae / Resume — Bea Nicor</h3>
+        <button class="modal-close-btn" id="resume-modal-close" aria-label="Close dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body modal-resume-body">
+        <!-- Exact Resume Document Layout Matching Resume Card -->
+        <article class="resume-doc" id="printable-resume">
+          <!-- 1. Top Decorative Blue & White Checkerboard Band -->
+          <div class="resume-checkerboard-band" aria-hidden="true"></div>
+
+          <!-- 2. Resume Header: Angled Name Badge & Circular Profile Photo -->
+          <header class="resume-doc-header">
+            <div class="resume-header-left">
+              <div class="resume-name-badge-wrap">
+                <div class="resume-name-badge">
+                  <h1 class="resume-name-title">BEA NICOR</h1>
+                </div>
+              </div>
+              <p class="resume-job-title">UI/UX DESIGNER</p>
+            </div>
+
+            <div class="resume-header-right">
+              <div class="resume-photo-frame">
+                <img src="assets/images/profile.png" alt="Bea Nicor — UI/UX Designer" class="resume-profile-photo">
+              </div>
+            </div>
+          </header>
+
+          <!-- 3. Two-Column Content Body -->
+          <div class="resume-doc-grid">
+            <!-- Left Column: About Me Card & Contact Card -->
+            <div class="resume-col-left">
+              <!-- About Me Card -->
+              <section class="resume-pill-card resume-about-card">
+                <h2 class="resume-pill-title">About Me</h2>
+                <p class="resume-about-desc">
+                  I'm a UI/UX designer passionate about creating clean, intuitive, and user-friendly digital experiences. I focus on understanding user needs and solving problems through simple, functional, and visually appealing designs.
+                </p>
+              </section>
+
+              <!-- Contact Card -->
+              <section class="resume-pill-card resume-contact-card">
+                <h2 class="resume-pill-title">Contact</h2>
+                <ul class="resume-contact-list">
+                  <li class="resume-contact-item">
+                    <span class="resume-contact-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                    </span>
+                    <a href="tel:+1234567890" class="resume-contact-link">+123-456-7890</a>
+                  </li>
+                  <li class="resume-contact-item">
+                    <span class="resume-contact-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                      </svg>
+                    </span>
+                    <a href="mailto:bmnicor.chmsu@gmail.com" class="resume-contact-link">bmnicor.chmsu@gmail.com</a>
+                  </li>
+                  <li class="resume-contact-item">
+                    <span class="resume-contact-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                    </span>
+                    <span>Brgy. Lantad, Silay City, Negros Occidental</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            <!-- Right Column: Education Timeline -->
+            <div class="resume-col-right">
+              <section class="resume-education-section">
+                <div class="resume-edu-heading">
+                  <span class="resume-edu-cap-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    </svg>
+                  </span>
+                  <h2 class="resume-edu-title">Education</h2>
+                </div>
+
+                <div class="resume-edu-timeline">
+                  <!-- Education Item 1: High School -->
+                  <div class="resume-edu-item">
+                    <span class="resume-timeline-dot"></span>
+                    <div class="resume-edu-content">
+                      <h3 class="resume-school-name">Doña Montserrat Lopez Memorial High School</h3>
+                      <p class="resume-school-program">Computer System Servicing</p>
+                      <p class="resume-school-year">( 2019 )</p>
+                    </div>
+                  </div>
+
+                  <!-- Education Item 2: University -->
+                  <div class="resume-edu-item">
+                    <span class="resume-timeline-dot"></span>
+                    <div class="resume-edu-content">
+                      <h3 class="resume-school-name">Carlos Hilado Memorial State University</h3>
+                      <p class="resume-school-program">Bachelor of Science in Information System</p>
+                      <p class="resume-school-year">( 2026 )</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- 4. Bottom Section 1: SKILLS Badge & Icons Strip -->
+          <section class="resume-bottom-section">
+            <div class="resume-section-divider-bar">
+              <span class="resume-divider-line"></span>
+              <span class="resume-badge-header">SKILLS</span>
+              <span class="resume-divider-line"></span>
+            </div>
+
+            <div class="resume-skills-strip">
+              <!-- Photoshop -->
+              <div class="resume-skill-item" title="Adobe Photoshop">
+                <div class="icon-ps-box">
+                  <span>Ps</span>
+                </div>
+              </div>
+
+              <!-- Figma -->
+              <div class="resume-skill-item" title="Figma">
+                <svg viewBox="0 0 38 57" width="34" height="42" fill="none">
+                  <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/>
+                  <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/>
+                  <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262"/>
+                  <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E"/>
+                  <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF"/>
+                </svg>
+              </div>
+
+              <!-- Microsoft Word -->
+              <div class="resume-skill-item" title="Microsoft Word">
+                <svg viewBox="0 0 48 48" width="40" height="40">
+                  <path fill="#185ABD" d="M39 6H15c-1.1 0-2 .9-2 2v8h14c1.1 0 2 .9 2 2v20c0 .6.4 1 1 1h9c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/>
+                  <path fill="#103F91" d="M29 16H13v22h16c1.1 0 2-.9 2-2V18c0-1.1-.9-2-2-2z"/>
+                  <rect width="20" height="20" x="5" y="14" fill="#185ABD" rx="2.5"/>
+                  <path fill="#FFF" d="M10.8 19h1.7l1.5 6.2 1.5-6.2h1.6l1.5 6.2 1.5-6.2h1.7L18.7 29h-1.8l-1.5-6.2-1.5 6.2h-1.8z"/>
+                </svg>
+              </div>
+
+              <!-- Python -->
+              <div class="resume-skill-item" title="Python">
+                <svg viewBox="0 0 128 128" width="38" height="38">
+                  <path fill="#3776AB" d="M63.6 8.2c-15.3 0-24.1 6.7-24.1 19.9v14.7h24.7v3.7H31.6C16.9 46.5 7 57.3 7 71.9c0 14.5 10.3 24.3 24.6 24.3h8.3v-11.4c0-10.4 8.9-19.4 19.4-19.4h24.7v-25c0-13.2-11.2-32.2-20.4-32.2zm-9.3 8.3c2.7 0 4.9 2.2 4.9 4.9s-2.2 4.9-4.9 4.9-4.9-2.2-4.9-4.9 2.2-4.9 4.9-4.9z"/>
+                  <path fill="#FFD438" d="M64.4 119.8c15.3 0 24.1-6.7 24.1-19.9V85.2H63.8v-3.7h32.6c14.7 0 24.6-10.8 24.6-25.4 0-14.5-10.3-24.3-24.6-24.3h-8.3v11.4c0 10.4-8.9 19.4-19.4 19.4H44v25c0 13.2 11.2 32.2 20.4 32.2zm9.3-8.3c-2.7 0-4.9-2.2-4.9-4.9s2.2-4.9 4.9-4.9 4.9 2.2 4.9 4.9-2.2 4.9-4.9 4.9z"/>
+                </svg>
+              </div>
+
+              <!-- Canva -->
+              <div class="resume-skill-item" title="Canva">
+                <div class="icon-canva-box">
+                  <span>C</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. Bottom Section 2: INTERESTS Badge & Items Strip -->
+          <section class="resume-bottom-section">
+            <div class="resume-section-divider-bar">
+              <span class="resume-divider-line"></span>
+              <span class="resume-badge-header">INTERESTS</span>
+              <span class="resume-divider-line"></span>
+            </div>
+
+            <div class="resume-interests-strip">
+              <!-- photography -->
+              <div class="resume-interest-item">
+                <span class="resume-interest-icon">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#111a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                  </svg>
+                </span>
+                <span class="resume-interest-label">photography</span>
+              </div>
+
+              <!-- videography -->
+              <div class="resume-interest-item">
+                <span class="resume-interest-icon">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="#111a48">
+                    <path d="M17 10.5V7a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3.5l4 3.5V7l-4 3.5z"/>
+                  </svg>
+                </span>
+                <span class="resume-interest-label">videography</span>
+              </div>
+
+              <!-- Editing (CapCut/Video Editor) -->
+              <div class="resume-interest-item">
+                <span class="resume-interest-icon">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#111a48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h7l3 6-3 6H4l3-6-3-6z"/>
+                    <path d="M20 6h-7l-3 6 3 6h7l-3-6 3-6z"/>
+                  </svg>
+                </span>
+                <span class="resume-interest-label">Editing</span>
+              </div>
+
+              <!-- music -->
+              <div class="resume-interest-item">
+                <span class="resume-interest-icon">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="#111a48">
+                    <rect x="4" y="2" width="16" height="20" rx="2.5" fill="#111a48"/>
+                    <circle cx="12" cy="7.5" r="2.2" fill="#9db2f0"/>
+                    <circle cx="12" cy="15" r="4.2" fill="#9db2f0"/>
+                    <circle cx="12" cy="15" r="1.6" fill="#111a48"/>
+                  </svg>
+                </span>
+                <span class="resume-interest-label">music</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Organic Corner Wavy Decorative Elements Matching Resume -->
+          <svg class="resume-corner-wave resume-wave-left" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <path d="M0,45 C35,65 30,95 15,120 L0,120 Z" fill="#6c8bec" opacity="0.85"/>
+            <path d="M0,15 C48,42 42,88 20,120" stroke="#4868d6" stroke-width="14" stroke-linecap="round"/>
+          </svg>
+          <svg class="resume-corner-wave resume-wave-right" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <path d="M120,45 C85,65 90,95 105,120 L120,120 Z" fill="#6c8bec" opacity="0.85"/>
+            <path d="M120,15 C72,42 78,88 100,120" stroke="#4868d6" stroke-width="14" stroke-linecap="round"/>
+          </svg>
+        </article>
+
+        <!-- Clean Action Buttons (Print & Download) -->
+        <div class="resume-modal-actions">
+          <button class="btn btn-secondary" onclick="window.print();" id="btn-print-resume">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print Clean Copy</span>
+          </button>
+          
+          <a href="assets/images/resume-card.png" download="Bea_Nicor_Resume.png" class="btn btn-primary" id="btn-download-resume-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume Card</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: CERTIFICATE PREVIEW MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="cert-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-cert-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-cert-title">Certificate Credential</h3>
+        <button class="modal-close-btn" id="cert-modal-close" aria-label="Close dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="text-align: center;">
+        <img src="assets/images/certificate-placeholder.svg" alt="Certificate Preview" style="max-height: 400px; object-fit: contain; margin: 0 auto 1.5rem auto;">
+        <h4 id="modal-cert-org" style="color: var(--accent-pink); font-size: 1.1rem; margin-bottom: 0.25rem;"></h4>
+        <div id="modal-cert-date" class="font-code" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+          This official certificate image placeholder can be replaced with your actual credential scan or completion document (PNG/JPG/PDF).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -4,6 +4,14 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:28] - Removed Interactive Resume Card from Footer Links
+
+- **Scope & Objective**: Removed the "Interactive Resume Card" button link from the footer "Skills & Connect" column in [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html), keeping the primary header resume button clean and removing redundancy.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Removed `#footer-open-resume` list item.
+- **Verification & Testing**:
+  - Committed to GitHub and deployed directly to Vercel production.
+
 ### [2026-10-16 07:25] - Removed Explore Mega Menu Navigation Item
 
 - **Scope & Objective**: Removed the "Explore" dropdown mega menu item from the main header navigation bar, streamlining the navigation to directly display the primary sections (*About*, *Projects*, *Tools*, *Education*, *Certificates*, *Skills*, *Contact*).

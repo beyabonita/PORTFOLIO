@@ -2867,6 +2867,11 @@ body.light-theme .mega-sub-link-highlight {
 /* --------------------------------------------------------------------------
    15. PRINT STYLESHEET (@media print)
    -------------------------------------------------------------------------- */
+@page {
+  size: portrait;
+  margin: 8mm 10mm;
+}
+
 @media print {
   /* Hide non-printable elements */
   .site-header,
@@ -2878,128 +2883,373 @@ body.light-theme .mega-sub-link-highlight {
   .ctrl-btn,
   .toast-container,
   .terminal-input-row,
-  .mobile-toggle {
+  .mobile-toggle,
+  #project-modal-overlay,
+  #cert-modal-overlay,
+  .modal-close-btn,
+  .resume-modal-actions,
+  .modal-header {
     display: none !important;
   }
 
-  body:not(.printing-resume) .modal-overlay {
+  /* When NOT printing the resume, hide the resume overlay */
+  body:not(.printing-resume) #resume-modal-overlay:not(.open) {
     display: none !important;
   }
 
-  /* Dedicated Resume Print Mode */
-  body.printing-resume {
+  /* ========================================================================
+     DEDICATED RESUME PRINT MODE (FITS 1 CLEAN SHEET OF PAPER)
+     ======================================================================== */
+  body.printing-resume,
+  body:has(#resume-modal-overlay.open) {
     background: #ffffff !important;
     padding: 0 !important;
     margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
-  body.printing-resume .site-header,
-  body.printing-resume .site-footer,
+  /* Hide main site portfolio sections when printing resume */
   body.printing-resume main,
-  body.printing-resume section {
+  body.printing-resume .hero-section,
+  body.printing-resume .about-section,
+  body.printing-resume .projects-section,
+  body.printing-resume .tools-section,
+  body.printing-resume .education-section,
+  body.printing-resume .certificates-section,
+  body.printing-resume .skills-section,
+  body.printing-resume .contact-section,
+  body:has(#resume-modal-overlay.open) main,
+  body:has(#resume-modal-overlay.open) section:not(#resume-modal-overlay section) {
     display: none !important;
   }
 
-  body.printing-resume #resume-modal-overlay {
+  /* Flatten modal containers for print flow */
+  body.printing-resume #resume-modal-overlay,
+  body:has(#resume-modal-overlay.open) #resume-modal-overlay {
     display: block !important;
     position: static !important;
-    background: none !important;
+    inset: auto !important;
+    background: transparent !important;
     opacity: 1 !important;
+    pointer-events: auto !important;
     padding: 0 !important;
     margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
-  body.printing-resume .modal-dialog {
+  body.printing-resume .modal-dialog,
+  body:has(#resume-modal-overlay.open) .modal-dialog {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     max-width: 100% !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
     transform: none !important;
-  }
-
-  body.printing-resume .modal-header,
-  body.printing-resume .resume-modal-actions {
-    display: none !important;
-  }
-
-  body.printing-resume .modal-resume-body {
+    margin: 0 auto !important;
     padding: 0 !important;
   }
 
-  body.printing-resume .resume-doc {
-    margin: 0 auto !important;
-    box-shadow: none !important;
-    border: 1px solid #d1d5db !important;
+  body.printing-resume .modal-resume-body,
+  body:has(#resume-modal-overlay.open) .modal-resume-body {
+    padding: 0 !important;
+    background: transparent !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* ========================================================================
+     CRITICAL FIX: ENSURE ALL RESUME SECTIONS ARE FULLY VISIBLE IN PRINT
+     ======================================================================== */
+  body.printing-resume #resume-modal-overlay section,
+  body.printing-resume .resume-doc section,
+  body.printing-resume .resume-pill-card,
+  body.printing-resume .resume-about-card,
+  body.printing-resume .resume-contact-card,
+  body.printing-resume .resume-education-section,
+  body.printing-resume .resume-bottom-section,
+  body:has(#resume-modal-overlay.open) #resume-modal-overlay section,
+  body:has(#resume-modal-overlay.open) .resume-doc section,
+  body:has(#resume-modal-overlay.open) .resume-pill-card,
+  body:has(#resume-modal-overlay.open) .resume-about-card,
+  body:has(#resume-modal-overlay.open) .resume-contact-card,
+  body:has(#resume-modal-overlay.open) .resume-education-section,
+  body:has(#resume-modal-overlay.open) .resume-bottom-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Printable Resume Sheet Container */
+  body.printing-resume .resume-doc,
+  body:has(#resume-modal-overlay.open) .resume-doc,
+  .resume-doc {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-  }
-
-  body {
-    background: #ffffff !important;
-    color: #111827 !important;
-    font-size: 11pt !important;
-    line-height: 1.4 !important;
-  }
-
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .hero-card, .tech-card, .sec-card, .education-card {
-    background: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
+    color-adjust: exact !important;
     box-shadow: none !important;
-    color: #111827 !important;
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
+    border: 1.5px solid #234c90 !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    max-width: 640px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    background: #b8c6f2 !important;
+    color: #111a48 !important;
+    position: relative !important;
   }
 
-  .text-gradient {
-    -webkit-text-fill-color: #db2777 !important;
-    color: #db2777 !important;
+  body.printing-resume .resume-doc *,
+  body:has(#resume-modal-overlay.open) .resume-doc * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  .hero-card {
+  /* Top Checkerboard Band */
+  body.printing-resume .resume-checkerboard-band,
+  body:has(#resume-modal-overlay.open) .resume-checkerboard-band {
+    height: 48px !important;
+    background-color: #ffffff !important;
+    background-image: 
+      linear-gradient(45deg, #446bf2 25%, transparent 25%), 
+      linear-gradient(-45deg, #446bf2 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #446bf2 75%), 
+      linear-gradient(-45deg, transparent 75%, #446bf2 75%) !important;
+    background-size: 20px 20px !important;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px !important;
+  }
+
+  /* Header */
+  body.printing-resume .resume-doc-header,
+  body:has(#resume-modal-overlay.open) .resume-doc-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    padding: 0 1.25rem 0.35rem 1rem !important;
+    margin-top: -10px !important;
+  }
+
+  body.printing-resume .resume-name-badge,
+  body:has(#resume-modal-overlay.open) .resume-name-badge {
+    background: #111a48 !important;
+    padding: 0.45rem 1.8rem 0.45rem 1.2rem !important;
+  }
+
+  body.printing-resume .resume-name-title,
+  body:has(#resume-modal-overlay.open) .resume-name-title {
+    color: #c5d4fc !important;
+    font-size: 1.45rem !important;
+  }
+
+  body.printing-resume .resume-job-title,
+  body:has(#resume-modal-overlay.open) .resume-job-title {
+    color: #111a48 !important;
+    font-size: 0.88rem !important;
+    margin: 0.35rem 0 0 1.2rem !important;
+  }
+
+  body.printing-resume .resume-photo-frame,
+  body:has(#resume-modal-overlay.open) .resume-photo-frame {
+    width: 120px !important;
+    height: 120px !important;
+    border: 3px solid #a84738 !important;
+    background: #ffffff !important;
+    margin-top: -30px !important;
+  }
+
+  body.printing-resume .resume-profile-photo,
+  body:has(#resume-modal-overlay.open) .resume-profile-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
     display: block !important;
-    padding: 1.5rem !important;
   }
 
-  .hero-left {
-    float: left;
-    margin-right: 1.5rem;
-    margin-bottom: 1rem;
+  /* Two Column Body Grid */
+  body.printing-resume .resume-doc-grid,
+  body:has(#resume-modal-overlay.open) .resume-doc-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr !important;
+    gap: 0.85rem !important;
+    padding: 0.65rem 1.25rem 0.25rem 1.25rem !important;
   }
 
-  .profile-avatar-wrapper {
-    width: 130px !important;
-    height: 130px !important;
+  body.printing-resume .resume-pill-card,
+  body:has(#resume-modal-overlay.open) .resume-pill-card {
+    background: #9db2f0 !important;
+    border-radius: 14px !important;
+    padding: 0.8rem 0.95rem !important;
+    margin-bottom: 0.75rem !important;
+    box-shadow: none !important;
   }
 
-  .hero-name {
-    color: #111827 !important;
-    font-size: 1.8rem !important;
+  body.printing-resume .resume-pill-title,
+  body:has(#resume-modal-overlay.open) .resume-pill-title {
+    color: #111a48 !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.4rem !important;
   }
 
-  .hero-tagline {
-    color: #db2777 !important;
+  body.printing-resume .resume-about-desc,
+  body:has(#resume-modal-overlay.open) .resume-about-desc {
+    color: #111a48 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+  }
+
+  body.printing-resume .resume-contact-list,
+  body:has(#resume-modal-overlay.open) .resume-contact-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  body.printing-resume .resume-contact-item,
+  body:has(#resume-modal-overlay.open) .resume-contact-item {
+    font-size: 0.74rem !important;
+    color: #111a48 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+  }
+
+  body.printing-resume .resume-contact-link,
+  body:has(#resume-modal-overlay.open) .resume-contact-link {
+    color: #111a48 !important;
+    text-decoration: none !important;
+  }
+
+  body.printing-resume .resume-edu-heading,
+  body:has(#resume-modal-overlay.open) .resume-edu-heading {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  body.printing-resume .resume-edu-title,
+  body:has(#resume-modal-overlay.open) .resume-edu-title {
+    color: #111a48 !important;
     font-size: 1rem !important;
   }
 
-  .projects-grid, .skills-categories-grid, .certificates-grid {
+  body.printing-resume .resume-edu-timeline,
+  body:has(#resume-modal-overlay.open) .resume-edu-timeline {
+    border-left: 2px solid #234c90 !important;
+    padding-left: 0.85rem !important;
+  }
+
+  body.printing-resume .resume-edu-item,
+  body:has(#resume-modal-overlay.open) .resume-edu-item {
+    margin-bottom: 0.75rem !important;
+    position: relative !important;
+  }
+
+  body.printing-resume .resume-school-name,
+  body:has(#resume-modal-overlay.open) .resume-school-name {
+    color: #111a48 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+  }
+
+  body.printing-resume .resume-school-program,
+  body:has(#resume-modal-overlay.open) .resume-school-program {
+    color: #111a48 !important;
+    font-size: 0.74rem !important;
+  }
+
+  body.printing-resume .resume-school-year,
+  body:has(#resume-modal-overlay.open) .resume-school-year {
+    color: #111a48 !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Bottom Sections: Skills & Interests */
+  body.printing-resume .resume-bottom-section,
+  body:has(#resume-modal-overlay.open) .resume-bottom-section {
+    padding: 0.2rem 1.25rem 0.55rem 1.25rem !important;
+  }
+
+  body.printing-resume .resume-section-divider-bar,
+  body:has(#resume-modal-overlay.open) .resume-section-divider-bar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  body.printing-resume .resume-divider-line,
+  body:has(#resume-modal-overlay.open) .resume-divider-line {
+    flex: 1 !important;
+    height: 1.5px !important;
+    background: #234c90 !important;
+  }
+
+  body.printing-resume .resume-badge-header,
+  body:has(#resume-modal-overlay.open) .resume-badge-header {
+    background: #0b3780 !important;
+    color: #ffffff !important;
+    font-size: 0.78rem !important;
+    padding: 0.18rem 1.8rem !important;
+    border-radius: 2px !important;
+  }
+
+  body.printing-resume .resume-skills-strip,
+  body:has(#resume-modal-overlay.open) .resume-skills-strip {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.4rem !important;
+    padding: 0.2rem 0 !important;
+  }
+
+  body.printing-resume .resume-skill-item,
+  body:has(#resume-modal-overlay.open) .resume-skill-item {
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  body.printing-resume .resume-interests-strip,
+  body:has(#resume-modal-overlay.open) .resume-interests-strip {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 0.2rem 0.5rem 0.5rem 0.5rem !important;
+  }
+
+  body.printing-resume .resume-interest-label,
+  body:has(#resume-modal-overlay.open) .resume-interest-label {
+    color: #111a48 !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* Decorative Corner Waves */
+  body.printing-resume .resume-corner-wave,
+  body:has(#resume-modal-overlay.open) .resume-corner-wave {
     display: block !important;
-  }
-
-  .project-card, .skill-category-card, .cert-card {
-    break-inside: avoid;
-    margin-bottom: 1.5rem !important;
-    border: 1px solid #e5e7eb !important;
-    background: #ffffff !important;
-    color: #111827 !important;
-  }
-
-  h1, h2, h3, h4 {
-    color: #111827 !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 80px !important;
+    height: 80px !important;
+    pointer-events: none !important;
   }
 }
 

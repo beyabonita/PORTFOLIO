@@ -658,12 +658,12 @@ function openResumeModal() {
 
   const printBtn = document.getElementById('btn-print-resume');
   if (printBtn) {
-    printBtn.onclick = () => {
+    printBtn.onclick = (e) => {
+      e.preventDefault();
       document.body.classList.add('printing-resume');
-      window.print();
       setTimeout(() => {
-        document.body.classList.remove('printing-resume');
-      }, 1200);
+        window.print();
+      }, 50);
     };
   }
 
@@ -681,8 +681,19 @@ function openResumeModal() {
       document.removeEventListener('keydown', handleEsc);
     }
   };
-  document.addEventListener('keydown', handleEsc);
 }
+
+// Global Print Lifecycle Listeners
+window.addEventListener('beforeprint', () => {
+  const resumeModal = document.getElementById('resume-modal-overlay');
+  if (resumeModal && resumeModal.classList.contains('open')) {
+    document.body.classList.add('printing-resume');
+  }
+});
+
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('printing-resume');
+});
 
 /* ==========================================================================
    8. CERTIFICATE MODAL

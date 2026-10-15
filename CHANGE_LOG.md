@@ -4,6 +4,30 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:40] - Replaced Resume with Formal Printable Curriculum Vitae (with 1x1 Photo TINGKOL.png)
+
+- **Scope & Objective**: Replaced the previous graphic card resume with an executive, formal Curriculum Vitae (`.formal-resume-document`) formatted for professional submission and physical/PDF printing. Integrated the formal 1x1 portrait `IMAGES/TINGKOL.png` in the header, accurately structured Bea's academic qualifications, real capstone systems, technical skills, and all 8 verified credentials, and perfected `@media print` rules for clean paper output.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html):
+    - Removed `.pretty-resume-card` and associated graphic elements.
+    - Added `.formal-resume-document` (`id="printable-resume"`) with:
+      - Formal header displaying `BEA MATIAS NICOR`, candidate title, contact information (email, location, live portfolio URL, phone status).
+      - Formal 1x1 portrait frame featuring `IMAGES/TINGKOL.png` with clean border and `1 x 1` indicator tag.
+      - Professional Objective articulating systems analysis, UI/UX, and database competencies.
+      - Formal Education section detailing BS in Information System (CHMSU, expected 2026) and Computer System Servicing (DMLMHS, 2019).
+      - Academic & Capstone Systems section detailing: Web-Based Security Agency Management System, Online Reservation Management System for MCC Seafood Restaurant, and KARE Restaurant Reservation and Ordering System.
+      - Technical Competencies categorized by UI/UX & Prototyping, Web & Programming, Database & Architecture, and Systems & Environments.
+      - Verified Certifications section listing all 8 credentials (Simplilearn, Google Cloud, Cisco Networking Academy, Coursera CISA).
+      - Unified action button: *"Print Formal Resume / Save as PDF"*.
+  - [`css/style.css`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/css/style.css):
+    - Replaced old card styles with clean, executive CV styling (`.formal-resume-document`, `.fr-header`, `.fr-photo-frame`, `.fr-photo-img`, `.fr-section`, `.fr-entry`, etc.).
+    - Implemented dedicated `@media print` rules ensuring crisp, high-contrast, zero-bleed physical printing and PDF export with exact image preservation.
+- **Verification & Testing**:
+  - Validated HTML hierarchy and CSS selectors.
+  - Committed to GitHub and deployed directly to Vercel production.
+
+---
+
 ### [2026-10-16 07:28] - Removed Interactive Resume Card from Footer Links
 
 - **Scope & Objective**: Removed the "Interactive Resume Card" button link from the footer "Skills & Connect" column in [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html), keeping the primary header resume button clean and removing redundancy.

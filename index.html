@@ -1257,25 +1257,185 @@
        ======================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
+      <div class="footer-mega-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand-col">
           <div class="brand-name">
             <span class="name-part">Bea</span><span class="ext-part">.dev</span>
           </div>
-          <p>
+          <p class="footer-brand-desc">
             Personal portfolio of Bea Nicor — UI/UX Designer &amp; Information Systems Student at Carlos Hilado Memorial State University.
           </p>
+          <div class="footer-brand-meta">
+            <span class="footer-status-pill">
+              <span class="status-indicator-dot"></span>
+              Available for Systems &amp; UI/UX Projects
+            </span>
+            <div class="footer-location-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>CHMSU • Talisay City, Negros Occidental</span>
+            </div>
+          </div>
         </div>
 
-        <ul class="footer-nav-list">
-          <li><a href="#about" class="footer-nav-link">About</a></li>
-          <li><a href="#projects" class="footer-nav-link">Projects</a></li>
-          <li><a href="#tools" class="footer-nav-link">Tools</a></li>
-          <li><a href="#education" class="footer-nav-link">Education</a></li>
-          <li><a href="#certificates" class="footer-nav-link">Certificates</a></li>
-          <li><a href="#skills" class="footer-nav-link">Skills</a></li>
-          <li><a href="#contact" class="footer-nav-link">Contact</a></li>
-        </ul>
+        <!-- Column 1: Featured Projects -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">
+            <span class="footer-col-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            Featured Projects
+          </h4>
+          <ul class="footer-subnav-list">
+            <li>
+              <a href="#projects" class="footer-sub-link" data-open-modal="project1">
+                <span class="footer-sub-title">Security Agency System</span>
+                <span class="footer-sub-desc">Web &amp; Mobile Platform (2026)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="footer-sub-link" data-open-modal="project2">
+                <span class="footer-sub-title">Student Organizations Portal</span>
+                <span class="footer-sub-desc">Officer Records &amp; Directory</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="footer-sub-link" data-open-modal="project3">
+                <span class="footer-sub-title">KARE Restaurant System</span>
+                <span class="footer-sub-desc">Online Dining &amp; Advance Orders</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="footer-sub-link footer-sub-link-all">
+                <span class="footer-sub-title">View All Projects &rarr;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Developer Tools -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">
+            <span class="footer-col-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </span>
+            Developer Tools
+          </h4>
+          <ul class="footer-subnav-list">
+            <li>
+              <a href="#tools" class="footer-sub-link">
+                <span class="footer-sub-title">UI/UX &amp; Prototyping</span>
+                <span class="footer-sub-desc">Figma, Adobe Photoshop, Canva</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tools" class="footer-sub-link">
+                <span class="footer-sub-title">Programming &amp; Databases</span>
+                <span class="footer-sub-desc">Python, JavaScript, PHP, MySQL</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tools" class="footer-sub-link">
+                <span class="footer-sub-title">Computer System Servicing</span>
+                <span class="footer-sub-desc">Hardware Assembly, OS &amp; LAN</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tools" class="footer-sub-link">
+                <span class="footer-sub-title">Development Environments</span>
+                <span class="footer-sub-desc">VS Code &amp; Git Version Control</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Academic Background -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">
+            <span class="footer-col-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </span>
+            Academic Background
+          </h4>
+          <ul class="footer-subnav-list">
+            <li>
+              <a href="#education" class="footer-sub-link">
+                <span class="footer-sub-title">BS in Information System</span>
+                <span class="footer-sub-desc">CHMSU • Candidate 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="#education" class="footer-sub-link">
+                <span class="footer-sub-title">Computer System Servicing</span>
+                <span class="footer-sub-desc">Secondary Technical • 2019</span>
+              </a>
+            </li>
+            <li>
+              <a href="#certificates" class="footer-sub-link">
+                <span class="footer-sub-title">Web &amp; Database Training</span>
+                <span class="footer-sub-desc">CICT Academic Certification</span>
+              </a>
+            </li>
+            <li>
+              <a href="#certificates" class="footer-sub-link">
+                <span class="footer-sub-title">InfoSec &amp; Data Ethics</span>
+                <span class="footer-sub-desc">ISSO Technical Seminar</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Skills & Connect -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">
+            <span class="footer-col-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            Skills &amp; Connect
+          </h4>
+          <ul class="footer-subnav-list">
+            <li>
+              <a href="#skills" class="footer-sub-link">
+                <span class="footer-sub-title">Core IS &amp; Systems Analysis</span>
+                <span class="footer-sub-desc">DFD, UML Modeling &amp; Agile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="footer-sub-link">
+                <span class="footer-sub-title">Direct Contact Form</span>
+                <span class="footer-sub-desc">bmnicor.chmsu@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="footer-sub-link footer-sub-link-highlight" id="footer-open-resume">
+                <span class="footer-sub-title">📄 Interactive Resume Card</span>
+                <span class="footer-sub-desc">Instant Modal Document View</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about" class="footer-sub-link">
+                <span class="footer-sub-title">About Bea Matias Nicor</span>
+                <span class="footer-sub-desc">Profile, Mission &amp; Academic Focus</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="footer-bottom">

@@ -604,6 +604,7 @@ function initProjectModals() {
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+  window.openProjectModal = openProject;
 
   viewBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -931,15 +932,17 @@ function initMegaMenu() {
     });
   });
 
-  // Subcategory link clicks
-  subLinks.forEach(link => {
+  // Subcategory link clicks (both Explore Mega Menu and Footer)
+  document.querySelectorAll('.mega-sub-link, .footer-sub-link').forEach(link => {
     link.addEventListener('click', () => {
       const openModalProject = link.getAttribute('data-open-modal');
 
-      // Close Mega Menu
-      megaPanel.classList.remove('open', 'open-mobile');
-      if (megaItem) megaItem.classList.remove('open');
-      megaTrigger.setAttribute('aria-expanded', 'false');
+      // Close Mega Menu if open
+      if (megaPanel) {
+        megaPanel.classList.remove('open', 'open-mobile');
+        if (megaItem) megaItem.classList.remove('open');
+        megaTrigger.setAttribute('aria-expanded', 'false');
+      }
 
       // Close Mobile Nav drawer if open
       if (headerNav && headerNav.classList.contains('open')) {
@@ -948,21 +951,24 @@ function initMegaMenu() {
       }
 
       // If linking directly to a specific project modal, launch it
-      if (openModalProject && typeof openProjectModal === 'function') {
+      if (openModalProject && typeof window.openProjectModal === 'function') {
         setTimeout(() => {
-          openProjectModal(openModalProject);
+          window.openProjectModal(openModalProject);
         }, 320);
       }
     });
   });
 
-  // Interactive Resume Modal shortcut
-  if (resumeBtn) {
-    resumeBtn.addEventListener('click', (e) => {
+  // Interactive Resume Modal shortcuts (Explore Nav & Footer)
+  const allResumeTriggers = [resumeBtn, document.getElementById('footer-open-resume')].filter(Boolean);
+  allResumeTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      megaPanel.classList.remove('open', 'open-mobile');
-      if (megaItem) megaItem.classList.remove('open');
-      megaTrigger.setAttribute('aria-expanded', 'false');
+      if (megaPanel) {
+        megaPanel.classList.remove('open', 'open-mobile');
+        if (megaItem) megaItem.classList.remove('open');
+        megaTrigger.setAttribute('aria-expanded', 'false');
+      }
 
       if (headerNav && headerNav.classList.contains('open')) {
         headerNav.classList.remove('open');
@@ -975,7 +981,7 @@ function initMegaMenu() {
         }, 150);
       }
     });
-  }
+  });
 
   // Close when clicking outside
   document.addEventListener('click', (e) => {

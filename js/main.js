@@ -436,11 +436,12 @@ const projectData = {
     ],
     role: "Co-Developer & Database Administrator: Structured relational database tables, implemented business logic constraints, and designed the interactive customer order interface.",
     technologies: ["JavaScript (ES6+)", "PHP", "MySQL", "CSS Glassmorphism", "Bootstrap", "JSON API"],
-    teamImage: "IMAGES/team3.png",
+    teamImage: "IMAGES/WEB3.png",
     teamMembers: [
-      { name: "Bea Matias Nicor", role: "Co-Developer & Database Admin" },
-      { name: "Team Member 2", role: "Lead Full-Stack Developer" },
-      { name: "Team Member 3", role: "UI/UX & Documentation" }
+      { name: "MIA ALLYSA BRETANA", role: "PROJECT LEADER" },
+      { name: "EDREI JOSH CRUZ", role: "SYSTEM ANALYST" },
+      { name: "BEA NICOR", role: "DOCUMENTATION" },
+      { name: "KHEIAN ROLDAN", role: "DEVELOPER" }
     ]
   }
 };

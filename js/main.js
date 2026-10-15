@@ -667,6 +667,22 @@ function openResumeModal() {
     };
   }
 
+  const savePdfBtn = document.getElementById('btn-save-pdf-resume');
+  if (savePdfBtn) {
+    savePdfBtn.onclick = (e) => {
+      e.preventDefault();
+      const originalTitle = document.title;
+      document.title = 'Bea_Matias_Nicor_Resume';
+      document.body.classList.add('printing-resume');
+      setTimeout(() => {
+        window.print();
+        setTimeout(() => {
+          document.title = originalTitle;
+        }, 1000);
+      }, 50);
+    };
+  }
+
   const printBtn = document.getElementById('btn-print-resume');
   if (printBtn) {
     printBtn.onclick = (e) => {

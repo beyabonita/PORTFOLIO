@@ -2661,20 +2661,6 @@ body.light-theme .mega-sub-link-highlight {
   margin: 0 !important;
 }
 
-.fr-photo-tag {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(15, 23, 42, 0.75);
-  color: #ffffff;
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.1em;
-  padding: 1px 0;
-  text-transform: uppercase;
-}
 
 /* 2. Sections */
 .fr-section {
@@ -3072,11 +3058,6 @@ body.light-theme .mega-sub-link-highlight {
     object-position: center 20% !important;
   }
 
-  body.printing-resume .fr-photo-tag,
-  body:has(#resume-modal-overlay.open) .fr-photo-tag {
-    background: rgba(15, 23, 42, 0.8) !important;
-    color: #ffffff !important;
-  }
 
   body.printing-resume .fr-section,
   body:has(#resume-modal-overlay.open) .fr-section {

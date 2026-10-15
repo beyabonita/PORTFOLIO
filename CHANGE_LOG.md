@@ -4,6 +4,25 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:46] - Separated Resume Actions into Two Buttons (Save as PDF & Print) & Removed "1x1" Tag
+
+- **Scope & Objective**: 
+  1. Separated the single resume print button into two distinct, dedicated action buttons in the resume modal: **"Save as PDF"** (`#btn-save-pdf-resume`, primary) and **"Print Resume"** (`#btn-print-resume`, secondary).
+  2. Removed the `"1 x 1"` overlay text tag from the portrait photo in the formal resume header for a completely pristine, executive photo presentation.
+- **Files Modified**:
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html):
+    - Removed `<span class="fr-photo-tag">1 x 1</span>` from `.fr-photo-frame`.
+    - Added two distinct action buttons in `.resume-modal-actions`: "Save as PDF" and "Print Resume".
+  - [`css/style.css`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/css/style.css):
+    - Removed `.fr-photo-tag` style rules.
+  - [`js/main.js`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/js/main.js):
+    - Added dedicated click event handler for `#btn-save-pdf-resume` that sets suggested filename (`Bea_Matias_Nicor_Resume`) before opening the print/save dialog.
+    - Added click event handler for `#btn-print-resume` for direct physical printing.
+- **Verification & Testing**:
+  - Committed to GitHub and deployed directly to Vercel production.
+
+---
+
 ### [2026-10-16 07:40] - Replaced Resume with Formal Printable Curriculum Vitae (with 1x1 Photo TINGKOL.png)
 
 - **Scope & Objective**: Replaced the previous graphic card resume with an executive, formal Curriculum Vitae (`.formal-resume-document`) formatted for professional submission and physical/PDF printing. Integrated the formal 1x1 portrait `IMAGES/TINGKOL.png` in the header, accurately structured Bea's academic qualifications, real capstone systems, technical skills, and all 8 verified credentials, and perfected `@media print` rules for clean paper output.

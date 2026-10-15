@@ -4,6 +4,20 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 06:41] - Integrated 3 Additional Official Certificate Scans
+
+- **Scope & Objective**: Attached Bea M. Nicor's authentic certificate scans to Cards 2, 3, and 4:
+  - *Introduction to Cloud Security* (`assets/images/cert-cloud-security.png`, Code: 9435367, 20th Nov 2025)
+  - *Introduction to Cloud Computing* (`assets/images/cert-cloud-computing.png`, 16th Nov 2025)
+  - *Innovating with Google Cloud AI* (`assets/images/cert-google-cloud-ai.png`, 15th Nov 2025)
+- **Files Modified / Added**:
+  - Added 3 high-resolution scans to `assets/images/`.
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html): Configured Cards 2, 3, and 4 with `data-img` and updated exact course titles and dates matching the certificates.
+- **Verification & Testing**:
+  - Tested modal preview display and committed to GitHub & deployed to Vercel production.
+
+---
+
 ### [2026-10-16 06:14] - Cleaned Certificate Modal Display
 
 - **Scope & Objective**: Removed redundant description text ("Official Certificate of Completion (Code: 9443168)...") and the "Open High-Resolution Scan" button from the certificate modal as requested, so the modal focuses entirely and cleanly on the authentic certificate scan.

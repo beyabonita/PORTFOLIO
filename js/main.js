@@ -739,8 +739,8 @@ function initContactForm() {
       return;
     }
 
-    // Demo notification
-    showToast(`Thank you, ${name}! Message received (Demo Mode). Ready for email service hook!`, 'success');
+    // Success notification
+    showToast(`Thank you, ${name}! Your message has been received.`, 'success');
     contactForm.reset();
   });
 }

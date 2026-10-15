@@ -385,11 +385,10 @@ const projectData = {
     ],
     role: "Lead Systems Analyst & Full-Stack Developer: Responsible for database modeling (ERD), system architecture design, administrative dashboard implementation, and RESTful API endpoints for the mobile monitoring client.",
     technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap", "REST API", "Leaflet/GPS", "HTML5/CSS3"],
-    teamImage: "IMAGES/team1.png",
+    teamImage: "IMAGES/WEB1.png",
     teamMembers: [
-      { name: "Bea Matias Nicor", role: "Lead Systems Analyst & Developer" },
-      { name: "Team Member 2", role: "Co-Developer" },
-      { name: "Team Member 3", role: "Database & Documentation" }
+      { name: "BEA NICOR", role: "PROJECT MANAGER / SYSTEM ANALYST" },
+      { name: "ANGEL ANN SAMANION", role: "DEVELOPER" }
     ]
   },
   project2: {

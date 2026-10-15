@@ -36,14 +36,14 @@ function initGlitterCanvas() {
   const ctx = canvas.getContext('2d');
   let width, height;
   let particles = [];
-  const particleCount = window.innerWidth < 768 ? 40 : 85;
+  const particleCount = window.innerWidth < 768 ? 40 : 80;
 
   const colors = [
-    'rgba(244, 114, 182, ', // Pink
-    'rgba(255, 255, 255, ', // White
-    'rgba(192, 132, 252, ', // Lavender
-    'rgba(251, 113, 133, ', // Rose gold
-    'rgba(252, 231, 243, '  // Blush
+    'rgba(201, 42, 42, ',   // Cherry Gingham Red
+    'rgba(250, 242, 223, ', // Cream Vanilla
+    'rgba(220, 38, 38, ',   // Crimson
+    'rgba(245, 158, 11, ',  // Golden Honey
+    'rgba(254, 205, 211, '  // Rose Blush
   ];
 
   function resize() {
@@ -73,7 +73,9 @@ function initGlitterCanvas() {
       this.speedY = - (Math.random() * 0.4 + 0.15); // float upward slowly
       this.twinkleSpeed = Math.random() * 0.03 + 0.01;
       this.twinkleFactor = Math.random() * Math.PI * 2;
-      this.isSparkle = Math.random() > 0.65; // Some render as 4-pointed stars
+      const typeChoice = Math.random();
+      this.isSparkle = typeChoice > 0.65; // 4-pointed stars
+      this.isHeart = typeChoice < 0.22;   // Sweet tiny floating hearts
     }
 
     update() {
@@ -95,7 +97,15 @@ function initGlitterCanvas() {
       ctx.save();
       ctx.fillStyle = this.colorBase + this.alpha + ')';
 
-      if (this.isSparkle) {
+      if (this.isHeart) {
+        // Draw tiny cute heart
+        const s = this.size * 1.6;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.bezierCurveTo(this.x - s, this.y - s, this.x - s * 1.5, this.y + s * 0.4, this.x, this.y + s * 1.4);
+        ctx.bezierCurveTo(this.x + s * 1.5, this.y + s * 0.4, this.x + s, this.y - s, this.x, this.y);
+        ctx.fill();
+      } else if (this.isSparkle) {
         // Draw 4-point star sparkle
         const r = this.size * 2.2;
         ctx.beginPath();
@@ -239,30 +249,30 @@ function initHeaderControls() {
       
       if (accents[currentAccentIdx] === 'accent-lavender') {
         document.body.classList.add('accent-lavender');
-        if (accentIndicator) accentIndicator.style.background = '#c084fc';
-        showToast('Accent switched to Lavender Dream 💜', 'info');
+        if (accentIndicator) accentIndicator.style.background = '#b91c1c';
+        showToast('Accent switched to Sweet Berry 🍓', 'info');
       } else if (accents[currentAccentIdx] === 'accent-rosegold') {
         document.body.classList.add('accent-rosegold');
-        if (accentIndicator) accentIndicator.style.background = '#fb7185';
-        showToast('Accent switched to Rose Gold 🌸', 'info');
+        if (accentIndicator) accentIndicator.style.background = '#d97706';
+        showToast('Accent switched to Honey Vanilla 🍯', 'info');
       } else {
-        if (accentIndicator) accentIndicator.style.background = '#f472b6';
-        showToast('Accent switched to Sweet Pink 💖', 'info');
+        if (accentIndicator) accentIndicator.style.background = '#c92a2a';
+        showToast('Accent switched to Classic Red Gingham 🎀', 'info');
       }
     });
   }
 
-  // 2. Theme Toggle (Soft Rose Light Mode [Default] <-> Dark Midnight Navy)
+  // 2. Theme Toggle (Red Gingham Scrapbook [Default] <-> Cozy Espresso Night Mode)
   const themeBtn = document.getElementById('btn-theme-toggle');
 
   function updateThemeIcon(isLight) {
     if (!themeBtn) return;
     if (isLight) {
-      themeBtn.setAttribute('title', 'Switch to Midnight Navy Mode 🌙');
+      themeBtn.setAttribute('title', 'Switch to Cozy Espresso Night Mode ☕');
       themeBtn.setAttribute('aria-label', 'Switch to Dark Mode');
       themeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
     } else {
-      themeBtn.setAttribute('title', 'Switch to Soft Rose Light Mode ☀️');
+      themeBtn.setAttribute('title', 'Switch to Red Gingham Scrapbook Mode 🎀');
       themeBtn.setAttribute('aria-label', 'Switch to Light Mode');
       themeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
     }
@@ -285,7 +295,7 @@ function initHeaderControls() {
       const isLight = document.body.classList.contains('light-theme');
       localStorage.setItem('user_theme', isLight ? 'light' : 'dark');
       updateThemeIcon(isLight);
-      showToast(isLight ? 'Light Rose Mode Activated ☀️' : 'Midnight Navy Mode Activated 🌙', 'info');
+      showToast(isLight ? 'Red Gingham Scrapbook Activated 🎀' : 'Cozy Espresso Night Mode Activated ☕', 'info');
     });
   }
 

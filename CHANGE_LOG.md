@@ -4,6 +4,28 @@ All non-trivial changes, feature implementations, and bug fixes for the BEYA_POR
 
 ---
 
+### [2026-10-16 07:05] - Red Gingham Scrapbook Theme Transformation
+
+- **Scope & Objective**: Completely overhauled the portfolio's visual design system to match the user's reference image aesthetic — featuring warm cream graph paper, classic red-and-cream gingham fabric corners, fluid deep red wavy ribbon borders with delicate cream bows, and high-contrast warm espresso/mocha typography.
+- **Files Modified**:
+  - [`css/style.css`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/css/style.css):
+    - Redefined design system variables (`:root` & `body.light-theme`) with warm cream backgrounds (`#fbf7ee`), cherry red gingham accents (`#c92a2a`), and high-contrast espresso text (`#221411`).
+    - Implemented authentic 24px x 24px cream graph notebook paper grid (`.bg-pattern-grid`).
+    - Added responsive fixed overlay (`.scrapbook-decorations`) with fluid SVG wavy ribbon borders and bow knots in all 4 corners.
+    - Added red-and-cream gingham washi tape trim to the hero card (`.hero-card::after`), stationery borders, and cherry red buttons with warm shadows.
+    - Added cozy dark espresso chalkboard mode rules (`body:not(.light-theme)`).
+  - [`index.html`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/index.html):
+    - Added `#scrapbook-decorations` SVG layer with seamless `<pattern id="gingham-check-pattern">` and bow symbols (`#deco-bow`).
+    - Updated theme color meta tag to `#fbf7ee`.
+    - Updated header control tooltips to reflect Red Gingham Scrapbook and Cozy Espresso modes.
+  - [`js/main.js`](file:///c:/Users/USER/OneDrive/Documents/BEYA_PORTFOLIO/js/main.js):
+    - Updated `initGlitterCanvas()` to float sweet cherry red hearts, warm cream 4-point stars, and golden sparkles.
+    - Updated accent switcher labels and toast notifications (*"Classic Red Gingham 🎀"*, *"Sweet Berry 🍓"*, *"Honey Vanilla 🍯"*).
+    - Updated theme mode toast notifications (*"Red Gingham Scrapbook Activated 🎀"* / *"Cozy Espresso Night Mode Activated ☕"*).
+- **Verification & Testing**:
+    - Validated JavaScript syntax with Node.js.
+    - Verified Git status and deployed to Vercel production.
+
 ### [2026-10-16 06:47] - Safe In-Place Click Handling for Unattached Certificates
 
 - **Scope & Objective**: Configured certificate buttons with no attached scans (Cards 5, 6, 7, and 8) to remain clickable in-place with tactile hover/press effects, without navigating away or redirecting to empty external pages.

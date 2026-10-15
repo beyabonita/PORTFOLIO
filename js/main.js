@@ -388,7 +388,7 @@ const projectData = {
   },
   project2: {
     title: "ONLINE RESERVATION MANAGEMENT SYSTEM FOR MCC SEAFOOD RESTAURANT",
-    image: "assets/images/project2-placeholder.svg",
+    image: "IMAGES/PROJ2.png",
     overview: "An automated web reservation and table allocation management system created specifically for MCC Seafood Restaurant to replace manual reservation books and optimize dining capacity.",
     problem: "Double-booking issues during peak dining hours, phone-only reservations causing miscommunication, and inability for customers to view real-time table availability and menu specialties.",
     objectives: [
